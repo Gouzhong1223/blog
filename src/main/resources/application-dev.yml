@@ -2,13 +2,15 @@ spring:
   datasource:
     username: root
     password: Aabc123456789
-    url: jdbc:mysql://localhost:3306/weixinmp?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
 logging:
   level:
     root: info
-    com.gouzhong1223: debug
-  path: log/weixinmp.log
+    com.gouzhong1223.blog.controller: info
+    com.gouzhong1223.blog.service: error
+    com.gouzhong1223.blog.mapper: error
+  path: log/blog.log
   file:
     max-size: 10MB
 mybatis:
