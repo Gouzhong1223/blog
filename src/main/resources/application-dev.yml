@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    username: root
+    password: Aabc123456789
+    url: jdbc:mysql://localhost:3306/weixinmp?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+logging:
+  level:
+    root: info
+    com.gouzhong1223: debug
+  path: log/weixinmp.log
+  file:
+    max-size: 10MB
+mybatis:
+  mapper-locations:
+    - classpath:mapper/*.xml
+    - classpath*:com/**/mapper/*.xml
