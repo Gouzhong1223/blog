@@ -1,6 +1,10 @@
 package com.gouzhong1223.blog.service.impl;
 
+import com.gouzhong1223.blog.mapper.TypeMapper;
+import com.gouzhong1223.blog.pojo.Type;
 import com.gouzhong1223.blog.service.TypeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * @Author : Gouzhong
@@ -13,5 +17,14 @@ import com.gouzhong1223.blog.service.TypeService;
  * @ProjectName : blog
  * @Version : 1.0.0
  */
+@Service
 public class TypeServiceImpl implements TypeService {
+
+    @Autowired
+    private TypeMapper typeMapper;
+
+    @Override
+    public Type selectTypeById(Integer id) {
+        return typeMapper.selectByPrimaryKey(id);
+    }
 }

@@ -1,5 +1,7 @@
 package com.gouzhong1223.blog.service;
 
+import com.gouzhong1223.blog.pojo.Type;
+
 /**
  * @Author : Gouzhong
  * @Blog : www.gouzhong1223.com
@@ -12,4 +14,5 @@ package com.gouzhong1223.blog.service;
  * @Version : 1.0.0
  */
 public interface TypeService {
+    Type selectTypeById(Integer id);
 }

@@ -5,8 +5,8 @@ import lombok.Getter;
 /**
  * @Author : Gouzhong
  * @Blog : www.gouzhong1223.com
- * @Description : 返回状态码常量
- * @Date : create by QingSong in 2020-02-01 4:49 下午
+ * @Description : TODO
+ * @Date : create by QingSong in 2020-02-01 8:05 下午
  * @Email : gouzhong1223@gmail.com
  * @Since : JDK 1.8
  * @PackageName : com.gouzhong1223.blog.common
@@ -14,14 +14,14 @@ import lombok.Getter;
  * @Version : 1.0.0
  */
 @Getter
-public enum ResultCode {
+public enum ResultMessage {
 
-    SUCCESS(200)
+    SUCCESS("操作成功！")
     ;
 
-    private Integer code;
+    private String messaage;
 
-    ResultCode(Integer code) {
-        this.code = code;
+    ResultMessage(String messaage) {
+        this.messaage = messaage;
     }
 }

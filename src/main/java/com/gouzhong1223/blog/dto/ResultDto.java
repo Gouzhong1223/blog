@@ -1,6 +1,9 @@
 package com.gouzhong1223.blog.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @Author : Gouzhong
@@ -14,5 +17,11 @@ import lombok.Data;
  * @Version : 1.0.0
  */
 @Data
-public class ResultDto {
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class ResultDto<T> {
+    private Integer code;
+    private String message;
+    private T data;
 }
