@@ -5,6 +5,8 @@ import com.gouzhong1223.blog.common.ResultMessage;
 import com.gouzhong1223.blog.dto.ResultDto;
 import com.gouzhong1223.blog.pojo.Tag;
 import com.gouzhong1223.blog.service.TagService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +29,7 @@ public class TagController {
 
     @Autowired
     private TagService tagService;
+    public static final Logger LOGGER = LoggerFactory.getLogger(TagController.class);
 
     @PostMapping("/insert")
     public ResultDto insertTag(Tag tag) {
