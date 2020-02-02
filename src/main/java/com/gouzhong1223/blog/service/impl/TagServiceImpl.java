@@ -52,11 +52,8 @@ public class TagServiceImpl implements TagService {
     @Override
     public Tag updateTag(Tag tag) {
         Tag select = tagMapper.selectByPrimaryKey(tag.getId());
-        BeanUtils.copyProperties(tag, select);
-        select.setId(tag.getId());
-//        select.setCreatetime(tag.getCreatetime());
         select.setUpdatetime(new Date());
-//        select.setTagname(tag.getTagname());
+        select.setTagname(tag.getTagname());
         LOGGER.info("修改Tagid为{}的Tag", tag.getId());
         int i = tagMapper.updateByPrimaryKey(select);
         if (i != 0) {

@@ -1,5 +1,7 @@
 package com.gouzhong1223.blog.controller;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.gouzhong1223.blog.common.ResultCode;
 import com.gouzhong1223.blog.common.ResultMessage;
 import com.gouzhong1223.blog.dto.ResultDto;
@@ -103,8 +105,11 @@ public class BlogController {
     }
 
     @PostMapping("/insert")
-    public ResultDto insertBlog(@RequestBody Blog blog,
-                                @RequestBody List<Integer> tagids) {
+    public ResultDto insertBlog(@RequestBody JSONObject jsonObject) {
+        JSONObject jsonblog = jsonObject.getJSONObject("blog");
+        JSONArray jsontagids = jsonObject.getJSONArray("tagids");
+        Blog blog = jsonblog.toJavaObject(Blog.class);
+        List<Integer> tagids = jsontagids.toJavaList(Integer.class);
         if (blog != null && !CollectionUtils.isEmpty(tagids)) {
             LOGGER.info("新增Blog", blog, tagids);
             int blogid = blogService.insertSelective(blog, tagids);
@@ -129,6 +134,5 @@ public class BlogController {
                 .data(null)
                 .build();
     }
-
 
 }
