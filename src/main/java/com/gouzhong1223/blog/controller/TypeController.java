@@ -34,14 +34,15 @@ public class TypeController {
     private TypeService typeService;
     public static final Logger LOGGER = LoggerFactory.getLogger(TypeController.class);
 
-    @GetMapping("/lastall")
+    @GetMapping("/listall")
     public ResultDto listAllTypes() {
         LOGGER.info("获取所有Type");
         List<Type> types = typeService.listAllTypes();
         if (CollectionUtils.isEmpty(types)) {
+            LOGGER.error("获取所有Type失败！");
             return new ResultDto(ResultCode.FAIL.getCode(), ResultMessage.FAIL.getMessaage());
         }
-        LOGGER.error("获取所有Type失败！");
+        LOGGER.info("获取所有Type成功！");
         return new ResultDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), types);
     }
 
@@ -59,5 +60,16 @@ public class TypeController {
         }
         LOGGER.error("typename为空", typename);
         return new ResultDto(ResultCode.VALUE_NULL.getCode(), ResultMessage.VALUE_NULL.getMessaage());
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResultDto deleteType(@PathVariable("id") Integer id) {
+        int i = typeService.deleteType(id);
+        if (i != 0) {
+            LOGGER.info("删除id为{}的Type", id);
+            return new ResultDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), i);
+        }
+        LOGGER.error("删除id为{}的Type失败！", id);
+        return new ResultDto(ResultCode.FAIL.getCode(), ResultMessage.FAIL.getMessaage());
     }
 }

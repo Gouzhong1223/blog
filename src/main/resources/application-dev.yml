@@ -10,6 +10,7 @@ logging:
     com.gouzhong1223.blog.controller: info
     com.gouzhong1223.blog.service: error
     com.gouzhong1223.blog.mapper: error
+    com.lucifer.springboot.cache.mapper: debug
   path: log/blog.log
   file:
     max-size: 10MB
@@ -17,3 +18,6 @@ mybatis:
   mapper-locations:
     - classpath:mapper/*.xml
     - classpath*:com/**/mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+

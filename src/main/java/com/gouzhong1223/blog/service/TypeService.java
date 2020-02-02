@@ -18,7 +18,7 @@ import java.util.List;
 public interface TypeService {
 
     /**
-     * 根据id删除Type
+     * 根据id查询Type
      *
      * @param id 主键
      * @return
@@ -47,4 +47,11 @@ public interface TypeService {
      * @return true->存在 false->不存在
      */
     boolean isExist(String typename);
+
+    /**
+     * 根据id删除Type
+     *
+     * @param id 主键
+     */
+    int deleteType(Integer id);
 }

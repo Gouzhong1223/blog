@@ -56,4 +56,9 @@ public class TypeServiceImpl implements TypeService {
         }
         return false;
     }
+
+    @Override
+    public int deleteType(Integer id) {
+        return typeMapper.deleteByPrimaryKey(id);
+    }
 }
