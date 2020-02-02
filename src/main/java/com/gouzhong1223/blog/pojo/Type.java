@@ -4,6 +4,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
+
 import lombok.Data;
 
 /**
@@ -28,13 +30,13 @@ public class Type implements Serializable {
 	* 创建时间
 	*/
     @ApiModelProperty(value="创建时间")
-    private LocalDateTime createtime;
+    private Date createtime;
 
     /**
 	* 更新时间
 	*/
     @ApiModelProperty(value="更新时间")
-    private LocalDateTime updatetime;
+    private Date updatetime;
 
     private static final long serialVersionUID = 1L;
 }

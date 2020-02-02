@@ -1,6 +1,15 @@
 package com.gouzhong1223.blog.service.impl;
 
+import com.gouzhong1223.blog.mapper.TagMapper;
+import com.gouzhong1223.blog.pojo.Blog;
+import com.gouzhong1223.blog.pojo.Tag;
 import com.gouzhong1223.blog.service.TagService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Date;
 
 /**
  * @Author : Gouzhong
@@ -13,5 +22,31 @@ import com.gouzhong1223.blog.service.TagService;
  * @ProjectName : blog
  * @Version : 1.0.0
  */
+@Service
 public class TagServiceImpl implements TagService {
+
+    @Autowired
+    private TagMapper tagMapper;
+    public static final Logger LOGGER = LoggerFactory.getLogger(TagServiceImpl.class);
+
+    @Override
+    public Tag insertTag(Tag tag) {
+        tag.setCreatetime(new Date());
+        tag.setUpdatetime(new Date());
+        int i = tagMapper.insertSelective(tag);
+        if (i != 0) {
+            return tag;
+        }
+        return null;
+    }
+
+    @Override
+    public void deleteTagByTagid(Integer id) {
+
+    }
+
+    @Override
+    public Blog updateTag(Tag tag) {
+        return null;
+    }
 }

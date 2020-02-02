@@ -1,5 +1,8 @@
 package com.gouzhong1223.blog.service;
 
+import com.gouzhong1223.blog.pojo.Blog;
+import com.gouzhong1223.blog.pojo.Tag;
+
 /**
  * @Author : Gouzhong
  * @Blog : www.gouzhong1223.com
@@ -12,4 +15,26 @@ package com.gouzhong1223.blog.service;
  * @Version : 1.0.0
  */
 public interface TagService {
+    /**
+     * 新增Tag
+     *
+     * @param tag
+     * @return 插入成功返回Tag，失败返回null
+     */
+    Tag insertTag(Tag tag);
+
+    /**
+     * 根据主键删除Tag
+     *
+     * @param id
+     */
+    void deleteTagByTagid(Integer id);
+
+    /**
+     * 修改Tag
+     *
+     * @param tag
+     * @return
+     */
+    Blog updateTag(Tag tag);
 }

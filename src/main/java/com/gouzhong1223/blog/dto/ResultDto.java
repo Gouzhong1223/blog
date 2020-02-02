@@ -24,4 +24,8 @@ public class ResultDto<T> {
     private Integer code;
     private String message;
     private T data;
+
+    public ResultDto(Integer code, String messaage) {
+        ResultDto.builder().code(code).message(message).code(null).build();
+    }
 }
