@@ -22,5 +22,10 @@ public interface BlogtagMapper {
 
     List<Blogtag> selectAllByBlogid(@Param("blogid")Integer blogid);
 
+    int deleteByBlogid(@Param("blogid")Integer blogid);
+
+    List<Blogtag> selectAllByTagid(@Param("tagid")Integer tagid);
+
+
 
 }

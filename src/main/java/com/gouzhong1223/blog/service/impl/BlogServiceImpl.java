@@ -82,4 +82,9 @@ public class BlogServiceImpl implements BlogService {
     public List<Blogtag> selectBlogTagsByBlogId(Integer id) {
         return blogtagMapper.selectAllByBlogid(id);
     }
+
+    @Override
+    public int deleteBlogTagsByBlogId(Integer id) {
+        return blogtagMapper.deleteByBlogid(id);
+    }
 }

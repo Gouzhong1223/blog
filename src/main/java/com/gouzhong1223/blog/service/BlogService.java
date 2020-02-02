@@ -58,4 +58,13 @@ public interface BlogService {
      */
     List<Blogtag> selectBlogTagsByBlogId(Integer id);
 
+    /**
+     * 根据blogid删除BlogTags
+     *
+     * @param id 主键
+     * @return
+     */
+    int deleteBlogTagsByBlogId(Integer id);
+
+
 }

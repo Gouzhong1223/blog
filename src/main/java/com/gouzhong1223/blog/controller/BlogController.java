@@ -8,6 +8,8 @@ import com.gouzhong1223.blog.pojo.Blogtag;
 import com.gouzhong1223.blog.pojo.Type;
 import com.gouzhong1223.blog.service.BlogService;
 import com.gouzhong1223.blog.service.TypeService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,6 +36,7 @@ public class BlogController {
     private BlogService blogService;
     @Autowired
     private TypeService typeService;
+    public static final Logger LOGGER = LoggerFactory.getLogger(BlogController.class);
 
     @GetMapping("allblogs")
     public ResultDto listAllBlogs() {
@@ -59,4 +62,24 @@ public class BlogController {
                 .data(hashMap)
                 .build();
     }
+
+    @DeleteMapping("/delete/{id}")
+    public ResultDto deleteBlog(@PathVariable("id") Integer id) {
+        int i = blogService.deleteByPrimaryKey(id);
+        if (i != 0) {
+            blogService.deleteBlogTagsByBlogId(id);
+            return ResultDto.builder()
+                    .code(ResultCode.SUCCESS.getCode())
+                    .message(ResultMessage.SUCCESS.getMessaage())
+                    .data(i)
+                    .build();
+        }
+        return ResultDto.builder()
+                .code(ResultCode.FAIL.getCode())
+                .message(ResultMessage.FAIL.getMessaage())
+                .data(i)
+                .build();
+    }
+
+
 }

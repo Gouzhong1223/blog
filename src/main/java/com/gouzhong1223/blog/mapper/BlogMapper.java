@@ -36,4 +36,8 @@ public interface BlogMapper {
      * @return
      */
     List<Blog> selectAllBlogs();
+
+    List<Blog> selectAllByTypeid(@Param("typeid")Integer typeid);
+
+
 }

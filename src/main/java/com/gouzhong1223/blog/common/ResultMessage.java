@@ -16,7 +16,8 @@ import lombok.Getter;
 @Getter
 public enum ResultMessage {
 
-    SUCCESS("操作成功！")
+    SUCCESS("操作成功！"),
+    FAIL("删除失败!")
     ;
 
     private String messaage;
