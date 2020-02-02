@@ -27,4 +27,6 @@ public interface TagMapper {
     int updateBatch(List<Tag> list);
 
     int batchInsert(@Param("list") List<Tag> list);
+
+    List<Tag> listAllTags();
 }

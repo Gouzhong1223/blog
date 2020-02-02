@@ -8,9 +8,13 @@ import com.gouzhong1223.blog.service.TagService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @Author : Gouzhong
@@ -38,5 +42,14 @@ public class TagController {
             return new ResultDto(ResultCode.FAIL.getCode(), ResultMessage.FAIL.getMessaage());
         }
         return new ResultDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), insertTag);
+    }
+
+    @GetMapping("listALl")
+    public ResultDto listAllTags() {
+        List<Tag> tags = tagService.listAllTags();
+        if (CollectionUtils.isEmpty(tags)) {
+            return new ResultDto(ResultCode.FAIL.getCode(), ResultMessage.FAIL.getMessaage());
+        }
+        return new ResultDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), tags);
     }
 }

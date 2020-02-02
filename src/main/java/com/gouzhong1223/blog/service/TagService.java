@@ -3,6 +3,8 @@ package com.gouzhong1223.blog.service;
 import com.gouzhong1223.blog.pojo.Blog;
 import com.gouzhong1223.blog.pojo.Tag;
 
+import java.util.List;
+
 /**
  * @Author : Gouzhong
  * @Blog : www.gouzhong1223.com
@@ -37,4 +39,11 @@ public interface TagService {
      * @return
      */
     Blog updateTag(Tag tag);
+
+    /**
+     * 获取所有的Tag
+     *
+     * @return Tags
+     */
+    List<Tag> listAllTags();
 }

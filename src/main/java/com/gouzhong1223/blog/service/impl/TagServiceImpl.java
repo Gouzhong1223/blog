@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author : Gouzhong
@@ -48,5 +49,10 @@ public class TagServiceImpl implements TagService {
     @Override
     public Blog updateTag(Tag tag) {
         return null;
+    }
+
+    @Override
+    public List<Tag> listAllTags() {
+        return tagMapper.listAllTags();
     }
 }

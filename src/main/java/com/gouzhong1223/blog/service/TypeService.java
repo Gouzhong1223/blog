@@ -2,6 +2,8 @@ package com.gouzhong1223.blog.service;
 
 import com.gouzhong1223.blog.pojo.Type;
 
+import java.util.List;
+
 /**
  * @Author : Gouzhong
  * @Blog : www.gouzhong1223.com
@@ -14,5 +16,35 @@ import com.gouzhong1223.blog.pojo.Type;
  * @Version : 1.0.0
  */
 public interface TypeService {
+
+    /**
+     * 根据id删除Type
+     *
+     * @param id 主键
+     * @return
+     */
     Type selectTypeById(Integer id);
+
+    /**
+     * 获取所有Type
+     *
+     * @return List->Types
+     */
+    List<Type> listAllTypes();
+
+    /**
+     * 新增Type
+     *
+     * @param typename
+     * @return 主键
+     */
+    int insertType(String typename);
+
+    /**
+     * 判断该type是否已经存在
+     *
+     * @param typename
+     * @return true->存在 false->不存在
+     */
+    boolean isExist(String typename);
 }

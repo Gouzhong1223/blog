@@ -17,7 +17,9 @@ import lombok.Getter;
 public enum ResultMessage {
 
     SUCCESS("操作成功！"),
-    FAIL("删除失败!")
+    FAIL("删除失败!"),
+    VALUE_NULL("数据为空"),
+    ISEXIST("存在同名标签或者分类")
     ;
 
     private String messaage;
