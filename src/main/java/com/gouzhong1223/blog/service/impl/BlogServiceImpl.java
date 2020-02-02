@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -46,13 +47,15 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public int insertSelective(Blog blog, List<Tag> tags) {
+    public int insertSelective(Blog blog, List<Integer> tagids) {
         int prid = 0;
         if (blog != null) {
+            blog.setCreatetime(new Date());
+            blog.setUpdatetime(new Date());
             ArrayList<Blogtag> blogtags = new ArrayList<>();
             prid = blogMapper.insertSelective(blog);
-            for (Tag tag : tags) {
-                blogtags.add(new Blogtag(prid, tag.getId()));
+            for (Integer tagid : tagids) {
+                blogtags.add(new Blogtag(prid, tagid));
             }
             int batchInsert = blogtagMapper.batchInsert(blogtags);
             if (batchInsert == 0) {

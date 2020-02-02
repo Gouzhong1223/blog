@@ -5,14 +5,18 @@ import com.gouzhong1223.blog.common.ResultMessage;
 import com.gouzhong1223.blog.dto.ResultDto;
 import com.gouzhong1223.blog.pojo.Blog;
 import com.gouzhong1223.blog.pojo.Blogtag;
+import com.gouzhong1223.blog.pojo.Tag;
 import com.gouzhong1223.blog.pojo.Type;
 import com.gouzhong1223.blog.service.BlogService;
+import com.gouzhong1223.blog.service.TagService;
 import com.gouzhong1223.blog.service.TypeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -29,13 +33,15 @@ import java.util.List;
  * @Version : 1.0.0
  */
 @RestController
-@RequestMapping("api")
+@RequestMapping("api/blog")
 public class BlogController {
 
     @Autowired
     private BlogService blogService;
     @Autowired
     private TypeService typeService;
+    @Autowired
+    private TagService tagService;
     public static final Logger LOGGER = LoggerFactory.getLogger(BlogController.class);
 
     @GetMapping("allblogs")
@@ -93,6 +99,34 @@ public class BlogController {
                 .code(ResultCode.FAIL.getCode())
                 .message(ResultMessage.FAIL.getMessaage())
                 .data(i)
+                .build();
+    }
+
+    @PostMapping("/insert")
+    public ResultDto insertBlog(@RequestBody Blog blog,
+                                @RequestBody List<Integer> tagids) {
+        if (blog != null && !CollectionUtils.isEmpty(tagids)) {
+            LOGGER.info("新增Blog", blog, tagids);
+            int blogid = blogService.insertSelective(blog, tagids);
+            if (blogid != 0) {
+                return ResultDto.builder()
+                        .code(ResultCode.SUCCESS.getCode())
+                        .message(ResultMessage.SUCCESS.getMessaage())
+                        .data(blogService.selectBlogById(blogid))
+                        .build();
+            }
+            LOGGER.error("新增失败!");
+            return ResultDto.builder()
+                    .code(ResultCode.FAIL.getCode())
+                    .message(ResultMessage.FAIL.getMessaage())
+                    .data(blogService.selectBlogById(blogid))
+                    .build();
+        }
+        LOGGER.error("参数为空，新增博客失败!");
+        return ResultDto.builder()
+                .code(ResultCode.VALUE_NULL.getCode())
+                .message(ResultMessage.VALUE_NULL.getMessaage())
+                .data(null)
                 .build();
     }
 

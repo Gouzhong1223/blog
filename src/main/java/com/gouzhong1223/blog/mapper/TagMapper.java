@@ -29,4 +29,5 @@ public interface TagMapper {
     int batchInsert(@Param("list") List<Tag> list);
 
     List<Tag> listAllTags();
+
 }

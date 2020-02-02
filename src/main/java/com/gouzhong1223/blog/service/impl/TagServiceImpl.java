@@ -6,6 +6,7 @@ import com.gouzhong1223.blog.pojo.Tag;
 import com.gouzhong1223.blog.service.TagService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,7 +50,19 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
-    public Blog updateTag(Tag tag) {
+    public Tag updateTag(Tag tag) {
+        Tag select = tagMapper.selectByPrimaryKey(tag.getId());
+        BeanUtils.copyProperties(tag, select);
+        select.setId(tag.getId());
+//        select.setCreatetime(tag.getCreatetime());
+        select.setUpdatetime(new Date());
+//        select.setTagname(tag.getTagname());
+        LOGGER.info("修改Tagid为{}的Tag", tag.getId());
+        int i = tagMapper.updateByPrimaryKey(select);
+        if (i != 0) {
+            return tag;
+        }
+        LOGGER.error("修改Tag失败！");
         return null;
     }
 

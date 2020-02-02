@@ -30,10 +30,10 @@ public interface BlogService {
      * 根据实例插入博客
      *
      * @param record 实例
-     * @param tags   标签
-     * @return
+     * @param tagids   标签
+     * @return blogid
      */
-    int insertSelective(Blog record, List<Tag> tags);
+    int insertSelective(Blog record, List<Integer> tagids);
 
     /**
      * 查询所有博客

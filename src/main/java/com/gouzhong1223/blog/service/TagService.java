@@ -36,9 +36,9 @@ public interface TagService {
      * 修改Tag
      *
      * @param tag
-     * @return
+     * @return 成功返回修改后的Tag，失败返回Null
      */
-    Blog updateTag(Tag tag);
+    Tag updateTag(Tag tag);
 
     /**
      * 获取所有的Tag

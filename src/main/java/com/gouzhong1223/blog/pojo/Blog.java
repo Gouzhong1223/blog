@@ -2,8 +2,11 @@ package com.gouzhong1223.blog.pojo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
+
 import lombok.Data;
 
 /**
@@ -28,13 +31,13 @@ public class Blog implements Serializable {
      * 创建时间
      */
     @ApiModelProperty(value = "创建时间")
-    private LocalDateTime createtime;
+    private Date createtime;
 
     /**
      * 更新时间
      */
     @ApiModelProperty(value = "更新时间")
-    private LocalDateTime updatetime;
+    private Date updatetime;
 
     /**
      * 博客正文

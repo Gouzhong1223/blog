@@ -49,4 +49,20 @@ public class TagController {
         }
         return new ResultDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), tags);
     }
+
+    @PutMapping("/update")
+    public ResultDto updateTag(@RequestBody Tag tag) {
+        if (tag != null) {
+            LOGGER.info("更新id为{}的Tag", tag.getId());
+            Tag updateTag = tagService.updateTag(tag);
+            if (updateTag != null) {
+                LOGGER.info("更新成功！");
+                return new ResultDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), updateTag);
+            }
+            LOGGER.error("更新id为{}的Tag失败", tag.getId());
+            return new ResultDto(ResultCode.FAIL.getCode(), ResultMessage.FAIL.getMessaage());
+        }
+        LOGGER.error("参数为空,更新失败");
+        return new ResultDto(ResultCode.VALUE_NULL.getCode(), ResultMessage.VALUE_NULL.getMessaage());
+    }
 }
