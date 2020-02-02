@@ -7,7 +7,6 @@ import com.gouzhong1223.blog.common.ResultMessage;
 import com.gouzhong1223.blog.dto.ResultDto;
 import com.gouzhong1223.blog.pojo.Blog;
 import com.gouzhong1223.blog.pojo.Blogtag;
-import com.gouzhong1223.blog.pojo.Tag;
 import com.gouzhong1223.blog.pojo.Type;
 import com.gouzhong1223.blog.service.BlogService;
 import com.gouzhong1223.blog.service.TagService;
@@ -18,7 +17,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
