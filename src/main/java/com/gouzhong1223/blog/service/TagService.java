@@ -20,10 +20,10 @@ public interface TagService {
     /**
      * 新增Tag
      *
-     * @param tag
+     * @param tagname
      * @return 插入成功返回Tag，失败返回null
      */
-    Tag insertTag(Tag tag);
+    Tag insertTag(String tagname);
 
     /**
      * 根据主键删除Tag

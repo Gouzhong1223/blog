@@ -31,7 +31,9 @@ public class TagServiceImpl implements TagService {
     public static final Logger LOGGER = LoggerFactory.getLogger(TagServiceImpl.class);
 
     @Override
-    public Tag insertTag(Tag tag) {
+    public Tag insertTag(String tagname) {
+        Tag tag = new Tag();
+        tag.setTagname(tagname);
         tag.setCreatetime(new Date());
         tag.setUpdatetime(new Date());
         int i = tagMapper.insertSelective(tag);
