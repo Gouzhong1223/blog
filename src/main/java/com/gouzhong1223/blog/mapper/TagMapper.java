@@ -31,5 +31,5 @@ public interface TagMapper {
     List<Tag> listAllTags();
 
     Tag selectOneByTagname(@Param("tagname")String tagname);
-
+    
 }

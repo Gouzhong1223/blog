@@ -8,6 +8,7 @@ import com.gouzhong1223.blog.common.ResultMessage;
 import com.gouzhong1223.blog.dto.ResponseDto;
 import com.gouzhong1223.blog.pojo.Blog;
 import com.gouzhong1223.blog.pojo.Blogtag;
+import com.gouzhong1223.blog.pojo.Tag;
 import com.gouzhong1223.blog.pojo.Type;
 import com.gouzhong1223.blog.service.BlogService;
 import com.gouzhong1223.blog.service.TagService;
@@ -18,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -62,12 +64,16 @@ public class BlogController {
         if (blog != null) {
             LOGGER.info("开始获取id为{}的Blog所有的标签", blog.getId());
             List<Blogtag> blogtags = blogService.selectBlogTagsByBlogId(blog.getId());
+            ArrayList<Tag> tags = new ArrayList<>();
+            for (Blogtag blogtag : blogtags) {
+                tags.add(tagService.selectTagById(blogtag.getTagid()));
+            }
             LOGGER.info("获取id为{}的Blog所属分类", blog.getId());
             Type type = typeService.selectTypeById(blog.getTypeid());
             HashMap hashMap = new HashMap();
             hashMap.put("blog", blog);
-            hashMap.put("blogtags", blogtags);
-            hashMap.put("typr", type);
+            hashMap.put("tags", tags);
+            hashMap.put("type", type);
             return ResponseDto.builder()
                     .code(ResultCode.SUCCESS.getCode())
                     .message(ResultMessage.SUCCESS.getMessaage())

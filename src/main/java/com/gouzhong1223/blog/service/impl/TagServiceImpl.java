@@ -2,13 +2,10 @@ package com.gouzhong1223.blog.service.impl;
 
 import com.gouzhong1223.blog.mapper.BlogtagMapper;
 import com.gouzhong1223.blog.mapper.TagMapper;
-import com.gouzhong1223.blog.pojo.Blog;
 import com.gouzhong1223.blog.pojo.Tag;
 import com.gouzhong1223.blog.service.TagService;
-import com.sun.javafx.tools.packager.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,7 +35,7 @@ public class TagServiceImpl implements TagService {
     @Override
     public Tag insertTag(String tagname) {
         Tag byTagname = tagMapper.selectOneByTagname(tagname);
-        if (byTagname != null) {
+        if (byTagname == null) {
             Tag tag = new Tag();
             tag.setTagname(tagname);
             tag.setCreatetime(new Date());
