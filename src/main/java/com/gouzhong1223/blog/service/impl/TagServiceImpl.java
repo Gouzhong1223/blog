@@ -1,5 +1,6 @@
 package com.gouzhong1223.blog.service.impl;
 
+import com.gouzhong1223.blog.mapper.BlogtagMapper;
 import com.gouzhong1223.blog.mapper.TagMapper;
 import com.gouzhong1223.blog.pojo.Blog;
 import com.gouzhong1223.blog.pojo.Tag;
@@ -29,6 +30,8 @@ public class TagServiceImpl implements TagService {
 
     @Autowired
     private TagMapper tagMapper;
+    @Autowired
+    private BlogtagMapper blogtagMapper;
     public static final Logger LOGGER = LoggerFactory.getLogger(TagServiceImpl.class);
 
     @Override
@@ -47,6 +50,7 @@ public class TagServiceImpl implements TagService {
     @Override
     public void deleteTagByTagid(Integer id) {
         tagMapper.deleteByPrimaryKey(id);
+        blogtagMapper.deleteByTagid(id);
     }
 
     @Override
