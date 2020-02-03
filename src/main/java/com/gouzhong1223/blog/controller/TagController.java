@@ -66,7 +66,7 @@ public class TagController {
         return new ResponseDto(ResultCode.VALUE_NULL.getCode(), ResultMessage.VALUE_NULL.getMessaage());
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete/{id}")
     public ResponseDto deleteTag(@PathVariable("id") Integer id) {
         Tag tag = tagService.selectTagById(id);
         if (tag != null) {

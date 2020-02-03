@@ -1,6 +1,10 @@
 package com.gouzhong1223.blog.interceptor;
 
+import com.alibaba.fastjson.JSONObject;
 import com.auth0.jwt.JWT;
+import com.gouzhong1223.blog.common.ResultCode;
+import com.gouzhong1223.blog.common.ResultMessage;
+import com.gouzhong1223.blog.dto.ResponseDto;
 import com.gouzhong1223.blog.service.impl.UserServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
@@ -27,12 +31,14 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String token = request.getHeader("token");
         String username = request.getHeader("username");
-        if (StringUtils.isAnyEmpty(username, token)) {
-            return false;
-        }
-        if (username.equals(JWT.decode(token).getClaim("username").asString())) {
+        if (!StringUtils.isAnyEmpty(username, token) && username.equals(JWT.decode(token).getClaim("username").asString())) {
             return true;
         }
+        //返回登录状态
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=utf-8");
+        ResponseDto resMsg = new ResponseDto<>(ResultCode.UNLOGIN.getCode(), ResultMessage.UNLOGIN.getMessaage());
+        response.getWriter().print(JSONObject.toJSONString(resMsg));
         return false;
     }
 

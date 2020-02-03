@@ -47,4 +47,9 @@ public class MD5Util {
             return null;
         }
     }
+
+    public static void main(String[] args) {
+        String code = MD5Util.code("111111");
+        System.out.println(code);
+    }
 }
