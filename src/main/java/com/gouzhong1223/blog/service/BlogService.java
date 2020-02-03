@@ -1,5 +1,6 @@
 package com.gouzhong1223.blog.service;
 
+import com.gouzhong1223.blog.common.PageResult;
 import com.gouzhong1223.blog.pojo.Blog;
 import com.gouzhong1223.blog.pojo.Blogtag;
 import com.gouzhong1223.blog.pojo.Tag;
@@ -30,7 +31,7 @@ public interface BlogService {
      * 根据实例插入博客
      *
      * @param record 实例
-     * @param tagids   标签
+     * @param tagids 标签
      * @return blogid
      */
     int insertSelective(Blog record, List<Integer> tagids);
@@ -66,5 +67,12 @@ public interface BlogService {
      */
     int deleteBlogTagsByBlogId(Integer id);
 
-
+    /**
+     * 分页查询所有Blog
+     *
+     * @param pageNum  当前页码
+     * @param pageSize 每一页大小
+     * @return List<Blog>
+     */
+    PageResult<Blog> listBlogByPage(Integer pageNum, Integer pageSize);
 }

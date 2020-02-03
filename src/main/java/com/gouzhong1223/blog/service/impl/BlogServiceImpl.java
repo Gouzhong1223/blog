@@ -1,5 +1,8 @@
 package com.gouzhong1223.blog.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.gouzhong1223.blog.common.PageResult;
 import com.gouzhong1223.blog.mapper.BlogMapper;
 import com.gouzhong1223.blog.mapper.BlogtagMapper;
 import com.gouzhong1223.blog.pojo.Blog;
@@ -37,32 +40,41 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public int deleteByPrimaryKey(Integer id) {
-        if (blogMapper.deleteByPrimaryKey(id) == 0) {
-            LOGGER.error("删除id为{}的Blog失败", id);
-            return blogMapper.deleteByPrimaryKey(id);
+        Blog blog = blogMapper.selectByPrimaryKey(id);
+        if (blog == null) {
+            LOGGER.error("当前需要删除的id为{}的Blog不存在！", id);
+            return 0;
         }
-        LOGGER.info("删除id为{}的Blog", id);
-
-        return blogMapper.deleteByPrimaryKey(id);
+        try {
+            LOGGER.info("删除id为{}的Blog", id);
+            blogMapper.deleteByPrimaryKey(id);
+            LOGGER.info("开始删除id为{}的Blog所对应的所有Tags", id);
+            blogtagMapper.deleteByBlogid(id);
+        } catch (Exception e) {
+            LOGGER.info("删除id为{}的Blog失败！", id);
+            e.printStackTrace();
+            return 0;
+        }
+        return 1;
     }
 
     @Override
     public int insertSelective(Blog blog, List<Integer> tagids) {
-        int prid = 0;
+        int insert = 0;
         if (blog != null) {
             blog.setCreatetime(new Date());
             blog.setUpdatetime(new Date());
             ArrayList<Blogtag> blogtags = new ArrayList<>();
-            prid = blogMapper.insertSelective(blog);
+            insert = blogMapper.insertSelective(blog);
             for (Integer tagid : tagids) {
-                blogtags.add(new Blogtag(prid, tagid));
+                blogtags.add(new Blogtag(blog.getId(), tagid));
             }
             int batchInsert = blogtagMapper.batchInsert(blogtags);
-            if (batchInsert == 0) {
+            if (batchInsert == 0 || insert == 0) {
                 LOGGER.error("新增Blog失败");
                 return 0;
             }
-            return prid;
+            return blog.getId();
         }
         LOGGER.error("blog为空,新增失败！！！");
         return 0;
@@ -89,5 +101,16 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public int deleteBlogTagsByBlogId(Integer id) {
         return blogtagMapper.deleteByBlogid(id);
+    }
+
+    @Override
+    public PageResult<Blog> listBlogByPage(Integer pageNum, Integer pageSize) {
+        LOGGER.info("封装分页参数，当前页数{}，每一页大小{}", pageNum, pageSize);
+        PageHelper.startPage(pageNum, pageSize);
+        LOGGER.info("开始查询所有Blog");
+        List<Blog> blogs = blogMapper.selectAllBlogs();
+        PageInfo<Blog> blogPageInfo = new PageInfo<>(blogs);
+        LOGGER.info("开始封装分页数据", blogPageInfo);
+        return new PageResult<>(blogPageInfo.getPageNum(), blogPageInfo.getPageSize(), blogPageInfo.getTotal(), blogPageInfo.getPages(), blogPageInfo.getList());
     }
 }

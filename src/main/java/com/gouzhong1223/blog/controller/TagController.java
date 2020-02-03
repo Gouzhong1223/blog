@@ -2,7 +2,7 @@ package com.gouzhong1223.blog.controller;
 
 import com.gouzhong1223.blog.common.ResultCode;
 import com.gouzhong1223.blog.common.ResultMessage;
-import com.gouzhong1223.blog.dto.ResultDto;
+import com.gouzhong1223.blog.dto.ResponseDto;
 import com.gouzhong1223.blog.pojo.Tag;
 import com.gouzhong1223.blog.service.TagService;
 import org.slf4j.Logger;
@@ -33,36 +33,36 @@ public class TagController {
     public static final Logger LOGGER = LoggerFactory.getLogger(TagController.class);
 
     @PostMapping("/insert")
-    public ResultDto insertTag(@RequestParam("tagname") String tagname) {
+    public ResponseDto insertTag(@RequestParam("tagname") String tagname) {
         Tag insertTag = tagService.insertTag(tagname);
         if (insertTag == null) {
-            return new ResultDto(ResultCode.FAIL.getCode(), ResultMessage.FAIL.getMessaage());
+            return new ResponseDto(ResultCode.FAIL.getCode(), ResultMessage.FAIL.getMessaage());
         }
-        return new ResultDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), insertTag);
+        return new ResponseDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), insertTag);
     }
 
     @GetMapping("listALl")
-    public ResultDto listAllTags() {
+    public ResponseDto listAllTags() {
         List<Tag> tags = tagService.listAllTags();
         if (CollectionUtils.isEmpty(tags)) {
-            return new ResultDto(ResultCode.FAIL.getCode(), ResultMessage.FAIL.getMessaage());
+            return new ResponseDto(ResultCode.FAIL.getCode(), ResultMessage.FAIL.getMessaage());
         }
-        return new ResultDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), tags);
+        return new ResponseDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), tags);
     }
 
     @PutMapping("/update")
-    public ResultDto updateTag(@RequestBody Tag tag) {
+    public ResponseDto updateTag(@RequestBody Tag tag) {
         if (tag != null) {
             LOGGER.info("更新id为{}的Tag", tag.getId());
             Tag updateTag = tagService.updateTag(tag);
             if (updateTag != null) {
                 LOGGER.info("更新成功！");
-                return new ResultDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), updateTag);
+                return new ResponseDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), updateTag);
             }
             LOGGER.error("更新id为{}的Tag失败", tag.getId());
-            return new ResultDto(ResultCode.FAIL.getCode(), ResultMessage.FAIL.getMessaage());
+            return new ResponseDto(ResultCode.FAIL.getCode(), ResultMessage.FAIL.getMessaage());
         }
         LOGGER.error("参数为空,更新失败");
-        return new ResultDto(ResultCode.VALUE_NULL.getCode(), ResultMessage.VALUE_NULL.getMessaage());
+        return new ResponseDto(ResultCode.VALUE_NULL.getCode(), ResultMessage.VALUE_NULL.getMessaage());
     }
 }

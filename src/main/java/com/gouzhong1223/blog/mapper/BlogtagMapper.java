@@ -27,5 +27,4 @@ public interface BlogtagMapper {
     List<Blogtag> selectAllByTagid(@Param("tagid")Integer tagid);
 
 
-
 }

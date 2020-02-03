@@ -4,6 +4,8 @@ import com.gouzhong1223.blog.mapper.TypeMapper;
 import com.gouzhong1223.blog.pojo.Type;
 import com.gouzhong1223.blog.service.TypeService;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,7 @@ public class TypeServiceImpl implements TypeService {
 
     @Autowired
     private TypeMapper typeMapper;
+    public static final Logger LOGGER = LoggerFactory.getLogger(TypeServiceImpl.class);
 
     @Override
     public Type selectTypeById(Integer id) {
@@ -38,12 +41,13 @@ public class TypeServiceImpl implements TypeService {
     }
 
     @Override
-    public int insertType(String typename) {
+    public Type insertType(String typename) {
         Type type = new Type();
         type.setTypename(typename);
         type.setCreatetime(new Date());
         type.setUpdatetime(new Date());
-        return typeMapper.insertSelective(type);
+        typeMapper.insertSelective(type);
+        return type;
     }
 
     @Override
@@ -60,5 +64,21 @@ public class TypeServiceImpl implements TypeService {
     @Override
     public int deleteType(Integer id) {
         return typeMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public Type updateType(Type type) {
+        Type selectByPrimaryKey = typeMapper.selectByPrimaryKey(type.getId());
+        if (selectByPrimaryKey == null) {
+            LOGGER.error("需要修改id为{}的Type不存在", type.getId());
+            return null;
+        }
+        selectByPrimaryKey.setTypename(type.getTypename());
+        selectByPrimaryKey.setUpdatetime(new Date());
+        int i = typeMapper.updateByPrimaryKey(selectByPrimaryKey);
+        if (i != 0) {
+            return selectByPrimaryKey;
+        }
+        return null;
     }
 }

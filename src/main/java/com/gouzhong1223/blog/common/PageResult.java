@@ -1,5 +1,9 @@
 package com.gouzhong1223.blog.common;
 
+import lombok.Data;
+
+import java.util.List;
+
 /**
  * @Author : Gouzhong
  * @Blog : www.gouzhong1223.com
@@ -11,5 +15,25 @@ package com.gouzhong1223.blog.common;
  * @ProjectName : blog
  * @Version : 1.0.0
  */
-public class PageResult {
+@Data
+public class PageResult<T> {
+    private static final long serialVersionUID = 1L;
+
+    private int pageNum;
+
+    private int pageSize;
+
+    private long total;
+
+    private int totalPage;
+
+    private List<T> list;
+
+    public PageResult(int pageNum, int pageSize, long total, int totalPage, List<T> list) {
+        this.pageNum = pageNum;
+        this.pageSize = pageSize;
+        this.total = total;
+        this.totalPage = totalPage;
+        this.list = list;
+    }
 }

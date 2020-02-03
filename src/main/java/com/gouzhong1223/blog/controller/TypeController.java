@@ -2,7 +2,7 @@ package com.gouzhong1223.blog.controller;
 
 import com.gouzhong1223.blog.common.ResultCode;
 import com.gouzhong1223.blog.common.ResultMessage;
-import com.gouzhong1223.blog.dto.ResultDto;
+import com.gouzhong1223.blog.dto.ResponseDto;
 import com.gouzhong1223.blog.pojo.Type;
 import com.gouzhong1223.blog.service.TypeService;
 import org.apache.commons.lang3.StringUtils;
@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -35,41 +34,55 @@ public class TypeController {
     public static final Logger LOGGER = LoggerFactory.getLogger(TypeController.class);
 
     @GetMapping("/listall")
-    public ResultDto listAllTypes() {
+    public ResponseDto listAllTypes() {
         LOGGER.info("获取所有Type");
         List<Type> types = typeService.listAllTypes();
         if (CollectionUtils.isEmpty(types)) {
             LOGGER.error("获取所有Type失败！");
-            return new ResultDto(ResultCode.FAIL.getCode(), ResultMessage.FAIL.getMessaage());
+            return new ResponseDto(ResultCode.FAIL.getCode(), ResultMessage.FAIL.getMessaage());
         }
         LOGGER.info("获取所有Type成功！");
-        return new ResultDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), types);
+        return new ResponseDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), types);
     }
 
     @PostMapping("/insert")
-    public ResultDto insertType(@RequestParam("typename") String typename) {
+    public ResponseDto insertType(@RequestParam("typename") String typename) {
         if (StringUtils.isNotEmpty(typename)) {
             if (!typeService.isExist(typename)) {
                 LOGGER.info("插入名为{}的type", typename);
-                int typeId = typeService.insertType(typename);
-                Type type = typeService.selectTypeById(typeId);
-                return new ResultDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), type);
+                Type type = typeService.insertType(typename);
+                return new ResponseDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), type);
             }
             LOGGER.error("type已经存在", typename);
-            return new ResultDto(ResultCode.ISEXIST.getCode(), ResultMessage.ISEXIST.getMessaage());
+            return new ResponseDto(ResultCode.ISEXIST.getCode(), ResultMessage.ISEXIST.getMessaage());
         }
         LOGGER.error("typename为空", typename);
-        return new ResultDto(ResultCode.VALUE_NULL.getCode(), ResultMessage.VALUE_NULL.getMessaage());
+        return new ResponseDto(ResultCode.VALUE_NULL.getCode(), ResultMessage.VALUE_NULL.getMessaage());
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResultDto deleteType(@PathVariable("id") Integer id) {
+    public ResponseDto deleteType(@PathVariable("id") Integer id) {
         int i = typeService.deleteType(id);
         if (i != 0) {
             LOGGER.info("删除id为{}的Type", id);
-            return new ResultDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), i);
+            return new ResponseDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), i);
         }
         LOGGER.error("删除id为{}的Type失败！", id);
-        return new ResultDto(ResultCode.FAIL.getCode(), ResultMessage.FAIL.getMessaage());
+        return new ResponseDto(ResultCode.FAIL.getCode(), ResultMessage.FAIL.getMessaage());
+    }
+
+    @PutMapping("/update")
+    public ResponseDto updateType(@RequestBody Type type) {
+        if (StringUtils.isNotEmpty(type.getTypename())) {
+            Type updateType = typeService.updateType(type);
+            if (updateType != null) {
+                LOGGER.info("修改id为{}的Type", type.getId());
+                return new ResponseDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), type);
+            }
+            LOGGER.error("修改id为{}的Type失败！", type.getId());
+            return new ResponseDto(ResultCode.FAIL.getCode(), ResultMessage.FAIL.getMessaage());
+        }
+        LOGGER.error("修改id为{}的Type失败！,参数为空！", type.getId());
+        return new ResponseDto(ResultCode.VALUE_NULL.getCode(), ResultMessage.VALUE_NULL.getMessaage());
     }
 }

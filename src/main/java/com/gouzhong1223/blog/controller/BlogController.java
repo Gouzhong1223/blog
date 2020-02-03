@@ -2,9 +2,10 @@ package com.gouzhong1223.blog.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.gouzhong1223.blog.common.PageResult;
 import com.gouzhong1223.blog.common.ResultCode;
 import com.gouzhong1223.blog.common.ResultMessage;
-import com.gouzhong1223.blog.dto.ResultDto;
+import com.gouzhong1223.blog.dto.ResponseDto;
 import com.gouzhong1223.blog.pojo.Blog;
 import com.gouzhong1223.blog.pojo.Blogtag;
 import com.gouzhong1223.blog.pojo.Type;
@@ -45,9 +46,9 @@ public class BlogController {
     public static final Logger LOGGER = LoggerFactory.getLogger(BlogController.class);
 
     @GetMapping("allblogs")
-    public ResultDto listAllBlogs() {
+    public ResponseDto listAllBlogs() {
         LOGGER.info("查询所有的Blog");
-        return ResultDto.builder()
+        return ResponseDto.builder()
                 .code(ResultCode.SUCCESS.getCode())
                 .message(ResultMessage.SUCCESS.getMessaage())
                 .data(blogService.listAllBlogs())
@@ -55,7 +56,7 @@ public class BlogController {
     }
 
     @GetMapping("/blogdetail/{id}")
-    public ResultDto blogDetail(@PathVariable("id") Integer id) {
+    public ResponseDto blogDetail(@PathVariable("id") Integer id) {
         LOGGER.info("查询id为{}的Blog", id);
         Blog blog = blogService.selectBlogById(id);
         if (blog != null) {
@@ -67,14 +68,14 @@ public class BlogController {
             hashMap.put("blog", blog);
             hashMap.put("blogtags", blogtags);
             hashMap.put("typr", type);
-            return ResultDto.builder()
+            return ResponseDto.builder()
                     .code(ResultCode.SUCCESS.getCode())
                     .message(ResultMessage.SUCCESS.getMessaage())
                     .data(hashMap)
                     .build();
         }
         LOGGER.error("获取id为{}的Blog失败！！！", id);
-        return ResultDto.builder()
+        return ResponseDto.builder()
                 .code(ResultCode.FAIL.getCode())
                 .message(ResultMessage.FAIL.getMessaage())
                 .data(null)
@@ -82,20 +83,18 @@ public class BlogController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResultDto deleteBlog(@PathVariable("id") Integer id) {
+    public ResponseDto deleteBlog(@PathVariable("id") Integer id) {
         LOGGER.info("删除id为{}的Blog", id);
         int i = blogService.deleteByPrimaryKey(id);
         if (i != 0) {
-            LOGGER.info("开始删除id为{}的Blog所对应的所有Tags", id);
-            blogService.deleteBlogTagsByBlogId(id);
-            return ResultDto.builder()
+            return ResponseDto.builder()
                     .code(ResultCode.SUCCESS.getCode())
                     .message(ResultMessage.SUCCESS.getMessaage())
                     .data(i)
                     .build();
         }
         LOGGER.error("删除id为{}的Blog失败！！！", id);
-        return ResultDto.builder()
+        return ResponseDto.builder()
                 .code(ResultCode.FAIL.getCode())
                 .message(ResultMessage.FAIL.getMessaage())
                 .data(i)
@@ -103,7 +102,7 @@ public class BlogController {
     }
 
     @PostMapping("/insert")
-    public ResultDto insertBlog(@RequestBody JSONObject jsonObject) {
+    public ResponseDto insertBlog(@RequestBody JSONObject jsonObject) {
         JSONObject jsonblog = jsonObject.getJSONObject("blog");
         JSONArray jsontagids = jsonObject.getJSONArray("tagids");
         Blog blog = jsonblog.toJavaObject(Blog.class);
@@ -112,25 +111,37 @@ public class BlogController {
             LOGGER.info("新增Blog", blog, tagids);
             int blogid = blogService.insertSelective(blog, tagids);
             if (blogid != 0) {
-                return ResultDto.builder()
+                return ResponseDto.builder()
                         .code(ResultCode.SUCCESS.getCode())
                         .message(ResultMessage.SUCCESS.getMessaage())
                         .data(blogService.selectBlogById(blogid))
                         .build();
             }
             LOGGER.error("新增失败!");
-            return ResultDto.builder()
+            return ResponseDto.builder()
                     .code(ResultCode.FAIL.getCode())
                     .message(ResultMessage.FAIL.getMessaage())
                     .data(blogService.selectBlogById(blogid))
                     .build();
         }
         LOGGER.error("参数为空，新增博客失败!");
-        return ResultDto.builder()
+        return ResponseDto.builder()
                 .code(ResultCode.VALUE_NULL.getCode())
                 .message(ResultMessage.VALUE_NULL.getMessaage())
                 .data(null)
                 .build();
+    }
+
+    @GetMapping("/pagelist")
+    public ResponseDto listAllBlogByPage(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+                                         @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize) {
+        LOGGER.info("开始分页查询数据，当前页码为{}，当前每一页大小为{}", pageNum, pageSize);
+        PageResult<Blog> blogPageResult = blogService.listBlogByPage(pageNum, pageSize);
+        if (!CollectionUtils.isEmpty(blogPageResult.getList())) {
+            return ResponseDto.SUCCESS(blogPageResult);
+        }
+        LOGGER.error("分页查询数据，当前页码为{}，当前每一页大小为{}，失败！！, pageNum, pageSize");
+        return ResponseDto.FAIL(blogPageResult);
     }
 
 }

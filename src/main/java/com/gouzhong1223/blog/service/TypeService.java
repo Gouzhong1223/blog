@@ -38,7 +38,7 @@ public interface TypeService {
      * @param typename
      * @return 主键
      */
-    int insertType(String typename);
+    Type insertType(String typename);
 
     /**
      * 判断该type是否已经存在
@@ -54,4 +54,12 @@ public interface TypeService {
      * @param id 主键
      */
     int deleteType(Integer id);
+
+    /**
+     * 修改Type
+     *
+     * @param type
+     * @return 修改之后的Type
+     */
+    Type updateType(Type type);
 }

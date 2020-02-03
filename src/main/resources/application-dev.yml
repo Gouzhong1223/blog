@@ -8,12 +8,17 @@ logging:
   level:
     root: info
     com.gouzhong1223.blog.controller: info
-    com.gouzhong1223.blog.service: error
-    com.gouzhong1223.blog.mapper: error
+    com.gouzhong1223.blog.service: info
+    com.gouzhong1223.blog.mapper: info
     com.lucifer.springboot.cache.mapper: debug
   path: log/blog.log
   file:
     max-size: 10MB
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
 mybatis:
   mapper-locations:
     - classpath:mapper/*.xml
