@@ -65,4 +65,16 @@ public class TagController {
         LOGGER.error("参数为空,更新失败");
         return new ResponseDto(ResultCode.VALUE_NULL.getCode(), ResultMessage.VALUE_NULL.getMessaage());
     }
+
+    @DeleteMapping("/delete")
+    public ResponseDto deleteTag(@PathVariable("id") Integer id) {
+        Tag tag = tagService.selectTagById(id);
+        if (tag != null) {
+            tagService.deleteTagByTagid(id);
+            LOGGER.info("删除id为{}的Tag", id);
+            return new ResponseDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), tag);
+        }
+        LOGGER.error("删除id为{}的Tag失败，Tag不存在！", id);
+        return new ResponseDto(ResultCode.FAIL.getCode(), ResultMessage.FAIL.getMessaage());
+    }
 }

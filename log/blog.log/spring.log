@@ -1705,3 +1705,6 @@ com.alibaba.fastjson.JSONException: can not get javaBeanDeserializer. java.util.
 2020-02-03 12:37:31.991 ERROR 20813 --- [http-nio-8087-exec-1] c.g.blog.service.impl.TypeServiceImpl    : 需要修改id为2的Type不存在
 2020-02-03 12:37:31.991 ERROR 20813 --- [http-nio-8087-exec-1] c.g.blog.controller.TypeController       : 修改id为2的Type失败！
 2020-02-03 12:37:55.230  INFO 20813 --- [http-nio-8087-exec-2] c.g.blog.controller.TypeController       : 修改id为1的Type
+2020-02-03 12:46:23.021  INFO 20813 --- [Thread-17] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-03 12:46:23.022  INFO 20813 --- [Thread-17] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-02-03 12:46:23.029  INFO 20813 --- [Thread-17] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

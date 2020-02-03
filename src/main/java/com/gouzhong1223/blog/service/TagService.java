@@ -46,4 +46,12 @@ public interface TagService {
      * @return Tags
      */
     List<Tag> listAllTags();
+
+    /**
+     * 根据id查询Tag
+     *
+     * @param id 主键
+     * @return Tag
+     */
+    Tag selectTagById(Integer id);
 }

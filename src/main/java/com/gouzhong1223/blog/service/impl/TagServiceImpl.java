@@ -46,7 +46,7 @@ public class TagServiceImpl implements TagService {
 
     @Override
     public void deleteTagByTagid(Integer id) {
-
+        tagMapper.deleteByPrimaryKey(id);
     }
 
     @Override
@@ -66,5 +66,10 @@ public class TagServiceImpl implements TagService {
     @Override
     public List<Tag> listAllTags() {
         return tagMapper.listAllTags();
+    }
+
+    @Override
+    public Tag selectTagById(Integer id) {
+        return tagMapper.selectByPrimaryKey(id);
     }
 }
