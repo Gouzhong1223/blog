@@ -45,8 +45,10 @@ public class TagController {
     public ResponseDto listAllTags() {
         List<Tag> tags = tagService.listAllTags();
         if (CollectionUtils.isEmpty(tags)) {
+            LOGGER.error("获取到的Tags为空");
             return new ResponseDto(ResultCode.FAIL.getCode(), ResultMessage.FAIL.getMessaage());
         }
+        LOGGER.info("获取所有Tags成功！");
         return new ResponseDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), tags);
     }
 

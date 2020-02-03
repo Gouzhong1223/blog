@@ -2137,3 +2137,79 @@ com.alibaba.fastjson.JSONException: can not get javaBeanDeserializer. java.util.
 2020-02-03 18:04:31.538  INFO 45373 --- [Thread-20] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
 2020-02-03 18:04:31.538  INFO 45373 --- [Thread-20] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2020-02-03 18:04:31.548  INFO 45373 --- [Thread-20] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-02-03 21:31:29.456  INFO 62492 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Starting BlogApplication on localhost with PID 62492 (/Users/qingsong/Projects/IDEA/2020-01/blog/target/classes started by qingsong in /Users/qingsong/Projects/IDEA/2020-01/blog)
+2020-02-03 21:31:29.459  INFO 62492 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : The following profiles are active: dev
+2020-02-03 21:31:29.576  INFO 62492 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-03 21:31:29.577  INFO 62492 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-03 21:31:30.684  INFO 62492 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-03 21:31:30.686  INFO 62492 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-03 21:31:30.713  INFO 62492 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16ms. Found 0 repository interfaces.
+2020-02-03 21:31:31.183  INFO 62492 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c340cdf8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-03 21:31:31.701  INFO 62492 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8087 (http)
+2020-02-03 21:31:31.722  INFO 62492 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-03 21:31:31.722  INFO 62492 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2020-02-03 21:31:31.889  INFO 62492 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-03 21:31:31.890  INFO 62492 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2313 ms
+2020-02-03 21:31:32.845  INFO 62492 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-03 21:31:33.648  INFO 62492 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-03 21:31:33.725  INFO 62492 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8087 (http) with context path ''
+2020-02-03 21:31:33.736  INFO 62492 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Started BlogApplication in 4.936 seconds (JVM running for 7.659)
+2020-02-03 21:31:42.225  INFO 62492 --- [http-nio-8087-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-03 21:31:42.225  INFO 62492 --- [http-nio-8087-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-03 21:31:42.243  INFO 62492 --- [http-nio-8087-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 18 ms
+2020-02-03 21:31:42.288  INFO 62492 --- [http-nio-8087-exec-1] com.gouzhong1223.blog.aspect.LogAspect   : Request : {url='http://localhost:8087/api/type/listall', ip='127.0.0.1', classMethod='com.gouzhong1223.blog.controller.TypeController.listAllTypes', args=[]}
+2020-02-03 21:31:42.299  INFO 62492 --- [http-nio-8087-exec-1] c.g.blog.controller.TypeController       : 获取所有Type
+2020-02-03 21:31:42.330  INFO 62492 --- [http-nio-8087-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-02-03 21:31:42.698  INFO 62492 --- [http-nio-8087-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-02-03 21:31:42.751  INFO 62492 --- [http-nio-8087-exec-1] c.g.blog.controller.TypeController       : 获取所有Type成功！
+2020-02-03 21:31:42.752  INFO 62492 --- [http-nio-8087-exec-1] com.gouzhong1223.blog.aspect.LogAspect   : Result : ResponseDto(code=200, message=操作成功！, data=[Type(id=4, typename=type1, createtime=Mon Feb 03 17:16:46 CST 2020, updatetime=Mon Feb 03 17:16:46 CST 2020), Type(id=5, typename=type2, createtime=Mon Feb 03 17:16:52 CST 2020, updatetime=Mon Feb 03 17:16:52 CST 2020), Type(id=6, typename=type3, createtime=Mon Feb 03 17:16:57 CST 2020, updatetime=Mon Feb 03 17:16:57 CST 2020)])
+2020-02-03 21:32:48.396  INFO 62492 --- [http-nio-8087-exec-3] com.gouzhong1223.blog.aspect.LogAspect   : Request : {url='http://localhost:8087/api/tag/listall', ip='127.0.0.1', classMethod='com.gouzhong1223.blog.controller.TagController.listAllTags', args=[]}
+2020-02-03 21:32:48.405  INFO 62492 --- [http-nio-8087-exec-3] com.gouzhong1223.blog.aspect.LogAspect   : Result : ResponseDto(code=200, message=操作成功！, data=[Tag(id=4, tagname=tag1, createtime=Mon Feb 03 17:52:36 CST 2020, updatetime=Mon Feb 03 17:52:36 CST 2020), Tag(id=5, tagname=tag2, createtime=Mon Feb 03 17:53:33 CST 2020, updatetime=Mon Feb 03 17:53:33 CST 2020), Tag(id=6, tagname=tag3, createtime=Mon Feb 03 17:53:46 CST 2020, updatetime=Mon Feb 03 17:53:46 CST 2020)])
+2020-02-03 21:32:57.038  INFO 62492 --- [http-nio-8087-exec-5] com.gouzhong1223.blog.aspect.LogAspect   : Request : {url='http://localhost:8087/api/tag/listall', ip='127.0.0.1', classMethod='com.gouzhong1223.blog.controller.TagController.listAllTags', args=[]}
+2020-02-03 21:32:57.047  INFO 62492 --- [http-nio-8087-exec-5] com.gouzhong1223.blog.aspect.LogAspect   : Result : ResponseDto(code=200, message=操作成功！, data=[Tag(id=4, tagname=tag1, createtime=Mon Feb 03 17:52:36 CST 2020, updatetime=Mon Feb 03 17:52:36 CST 2020), Tag(id=5, tagname=tag2, createtime=Mon Feb 03 17:53:33 CST 2020, updatetime=Mon Feb 03 17:53:33 CST 2020), Tag(id=6, tagname=tag3, createtime=Mon Feb 03 17:53:46 CST 2020, updatetime=Mon Feb 03 17:53:46 CST 2020)])
+2020-02-03 21:33:57.058  INFO 62492 --- [Thread-20] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-03 21:33:57.060  INFO 62492 --- [Thread-20] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-02-03 21:33:57.078  INFO 62492 --- [Thread-20] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-02-03 21:34:03.200  INFO 63033 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Starting BlogApplication on localhost with PID 63033 (/Users/qingsong/Projects/IDEA/2020-01/blog/target/classes started by qingsong in /Users/qingsong/Projects/IDEA/2020-01/blog)
+2020-02-03 21:34:03.203  INFO 63033 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : The following profiles are active: dev
+2020-02-03 21:34:03.258  INFO 63033 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-03 21:34:03.259  INFO 63033 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-03 21:34:04.092  INFO 63033 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-03 21:34:04.102  INFO 63033 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-03 21:34:04.150  INFO 63033 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21ms. Found 0 repository interfaces.
+2020-02-03 21:34:04.561  INFO 63033 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$5df3d13f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-03 21:34:05.014  INFO 63033 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8087 (http)
+2020-02-03 21:34:05.035  INFO 63033 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-03 21:34:05.035  INFO 63033 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2020-02-03 21:34:05.200  INFO 63033 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-03 21:34:05.201  INFO 63033 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1942 ms
+2020-02-03 21:34:06.157  INFO 63033 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-03 21:34:06.924  INFO 63033 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-03 21:34:07.035  INFO 63033 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8087 (http) with context path ''
+2020-02-03 21:34:07.039  INFO 63033 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Started BlogApplication in 4.449 seconds (JVM running for 6.111)
+2020-02-03 21:34:24.108  INFO 63033 --- [Thread-19] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-03 21:34:30.271  INFO 63134 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Starting BlogApplication on localhost with PID 63134 (/Users/qingsong/Projects/IDEA/2020-01/blog/target/classes started by qingsong in /Users/qingsong/Projects/IDEA/2020-01/blog)
+2020-02-03 21:34:30.274  INFO 63134 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : The following profiles are active: dev
+2020-02-03 21:34:30.368  INFO 63134 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-03 21:34:30.370  INFO 63134 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-03 21:34:31.371  INFO 63134 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-03 21:34:31.373  INFO 63134 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-03 21:34:31.398  INFO 63134 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15ms. Found 0 repository interfaces.
+2020-02-03 21:34:31.861  INFO 63134 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c05f886d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-03 21:34:32.374  INFO 63134 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8087 (http)
+2020-02-03 21:34:32.396  INFO 63134 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-03 21:34:32.397  INFO 63134 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2020-02-03 21:34:32.564  INFO 63134 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-03 21:34:32.564  INFO 63134 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2194 ms
+2020-02-03 21:34:33.523  INFO 63134 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-03 21:34:34.266  INFO 63134 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-03 21:34:34.326  INFO 63134 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8087 (http) with context path ''
+2020-02-03 21:34:34.330  INFO 63134 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Started BlogApplication in 4.902 seconds (JVM running for 6.007)
+2020-02-03 21:34:42.226  INFO 63134 --- [http-nio-8087-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-03 21:34:42.226  INFO 63134 --- [http-nio-8087-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-03 21:34:42.239  INFO 63134 --- [http-nio-8087-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2020-02-03 21:34:42.273  INFO 63134 --- [http-nio-8087-exec-1] com.gouzhong1223.blog.aspect.LogAspect   : Request : {url='http://localhost:8087/api/tag/listall', ip='127.0.0.1', classMethod='com.gouzhong1223.blog.controller.TagController.listAllTags', args=[]}
+2020-02-03 21:34:42.304  INFO 63134 --- [http-nio-8087-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-02-03 21:34:42.726  INFO 63134 --- [http-nio-8087-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-02-03 21:34:42.782  INFO 63134 --- [http-nio-8087-exec-1] c.g.blog.controller.TagController        : 获取所有Tags成功！
+2020-02-03 21:34:42.784  INFO 63134 --- [http-nio-8087-exec-1] com.gouzhong1223.blog.aspect.LogAspect   : Result : ResponseDto(code=200, message=操作成功！, data=[Tag(id=4, tagname=tag1, createtime=Mon Feb 03 17:52:36 CST 2020, updatetime=Mon Feb 03 17:52:36 CST 2020), Tag(id=5, tagname=tag2, createtime=Mon Feb 03 17:53:33 CST 2020, updatetime=Mon Feb 03 17:53:33 CST 2020), Tag(id=6, tagname=tag3, createtime=Mon Feb 03 17:53:46 CST 2020, updatetime=Mon Feb 03 17:53:46 CST 2020)])

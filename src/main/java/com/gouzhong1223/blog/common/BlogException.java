@@ -12,4 +12,5 @@ package com.gouzhong1223.blog.common;
  * @Version : 1.0.0
  */
 public class BlogException extends Exception {
+
 }
