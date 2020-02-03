@@ -9,12 +9,16 @@ import com.gouzhong1223.blog.pojo.Blog;
 import com.gouzhong1223.blog.pojo.Blogtag;
 import com.gouzhong1223.blog.pojo.Tag;
 import com.gouzhong1223.blog.service.BlogService;
+import com.gouzhong1223.blog.util.DateTimeUtil;
+import org.apache.commons.lang3.time.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -39,6 +43,7 @@ public class BlogServiceImpl implements BlogService {
     private BlogtagMapper blogtagMapper;
     public static final Logger LOGGER = LoggerFactory.getLogger(BlogServiceImpl.class);
 
+
     @Override
     public int deleteByPrimaryKey(Integer id) {
         Blog blog = blogMapper.selectByPrimaryKey(id);
@@ -61,10 +66,12 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public int insertSelective(Blog blog, List<Integer> tagids) {
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        LocalDate now = LocalDate.now();
         int insert = 0;
         if (blog != null) {
-            blog.setCreatetime(new Date());
-            blog.setUpdatetime(new Date());
+            blog.setCreatetime(DateTimeUtil.getDateTime());
+            blog.setUpdatetime(DateTimeUtil.getDateTime());
             ArrayList<Blogtag> blogtags = new ArrayList<>();
             insert = blogMapper.insertSelective(blog);
             for (Integer tagid : tagids) {
@@ -118,10 +125,14 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public Blog updateBlog(Blog blog, List<Integer> tagids) {
         Blog selectByPrimaryKey = blogMapper.selectByPrimaryKey(blog.getId());
+        String createtime = selectByPrimaryKey.getCreatetime();
         BeanUtils.copyProperties(blog, selectByPrimaryKey);
-        selectByPrimaryKey.setUpdatetime(new Date());
+        selectByPrimaryKey.setUpdatetime(DateTimeUtil.getDateTime());
+        selectByPrimaryKey.setCreatetime(createtime);
+        LOGGER.info("开始更新Blog");
         int update = blogMapper.updateByPrimaryKey(selectByPrimaryKey);
         if (update != 0) {
+            LOGGER.info("开始更新Blog对应的Tag");
             for (Integer tagid : tagids) {
                 blogtagMapper.updateTagidByBlogid(tagid, blog.getId());
             }

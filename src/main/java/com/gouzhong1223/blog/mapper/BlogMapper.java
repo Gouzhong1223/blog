@@ -1,22 +1,22 @@
 package com.gouzhong1223.blog.mapper;
 
-import com.gouzhong1223.blog.pojo.Blog;
-
-import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
+import com.gouzhong1223.blog.pojo.Blog;import org.apache.ibatis.annotations.Param;import java.util.List;
 
 /**
- * Created by Mybatis Generator 2020/02/01
+ * @Author : Gouzhong
+ * @Blog : www.gouzhong1223.com
+ * @Description : BlogMapper
+ * @Date : create by QingSong in 2020-02-03 11:32 PM
+ * @Email : gouzhong1223@gmail.com
+ * @Since : JDK 1.8
+ * @PackageName : com.gouzhong1223.blog.mapper
+ * @ProjectName : blog
+ * @Version : ${VERSION}
  */
 public interface BlogMapper {
     int deleteByPrimaryKey(Integer id);
 
     int insert(Blog record);
-
-    int insertOrUpdate(Blog record);
-
-    int insertOrUpdateSelective(Blog record);
 
     int insertSelective(Blog record);
 
@@ -25,6 +25,10 @@ public interface BlogMapper {
     int updateByPrimaryKeySelective(Blog record);
 
     int updateByPrimaryKey(Blog record);
+
+    int insertOrUpdate(Blog record);
+
+    int insertOrUpdateSelective(Blog record);
 
     int updateBatch(List<Blog> list);
 
@@ -37,6 +41,5 @@ public interface BlogMapper {
      */
     List<Blog> selectAllBlogs();
 
-    List<Blog> selectAllByTypeid(@Param("typeid")Integer typeid);
-    
+    List<Blog> selectAllByTypeid(@Param("typeid") Integer typeid);
 }

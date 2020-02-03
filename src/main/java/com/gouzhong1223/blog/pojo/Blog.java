@@ -1,18 +1,34 @@
 package com.gouzhong1223.blog.pojo;
 
+import com.gouzhong1223.blog.util.DateTimeUtil;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
- * Created by Mybatis Generator 2020/02/01
+ * @Author : Gouzhong
+ * @Blog : www.gouzhong1223.com
+ * @Description : Blog
+ * @Date : create by QingSong in 2020-02-03 11:32 PM
+ * @Email : gouzhong1223@gmail.com
+ * @Since : JDK 1.8
+ * @PackageName : com.gouzhong1223.blog.pojo
+ * @ProjectName : blog
+ * @Version : 1.0.0
  */
-@ApiModel(value = "com.gouzhong1223.blog.pojo.Blog")
+@ApiModel(value = "com-gouzhong1223-blog-pojo-Blog")
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Blog implements Serializable {
     /**
      * 主键
@@ -30,13 +46,13 @@ public class Blog implements Serializable {
      * 创建时间
      */
     @ApiModelProperty(value = "创建时间")
-    private Date createtime;
+    private String createtime;
 
     /**
      * 更新时间
      */
     @ApiModelProperty(value = "更新时间")
-    private Date updatetime;
+    private String updatetime;
 
     /**
      * 博客正文
@@ -74,12 +90,17 @@ public class Blog implements Serializable {
     @ApiModelProperty(value = "简介")
     private String introduction;
 
-    private static final long serialVersionUID = 1L;
-
-    public Blog() {
+    /*public void setCreatetime(Date date) {
+        this.createtime = DateTimeUtil.getDateTime(date);
     }
 
-    protected boolean canEqual(Object other) {
-        return other instanceof com.gouzhong1223.blog.pojo.Blog;
+    public void setUpdatetime(Date date) {
+        this.updatetime = DateTimeUtil.getDateTime(date);
+    }*/
+
+    private static final long serialVersionUID = 1L;
+
+    public static BlogBuilder builder() {
+        return new BlogBuilder();
     }
 }
