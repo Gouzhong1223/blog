@@ -1,8 +1,10 @@
 package com.gouzhong1223.blog.service;
 
 import com.gouzhong1223.blog.pojo.User;
+
 import java.util.List;
-    /**
+
+/**
  * @Author : Gouzhong
  * @Blog : www.gouzhong1223.com
  * @Description : UserService
@@ -13,7 +15,7 @@ import java.util.List;
  * @ProjectName : blog
  * @Version : ${VERSION}
  */
-public interface UserService{
+public interface UserService {
 
     int deleteByPrimaryKey(Long id);
 
@@ -30,4 +32,22 @@ public interface UserService{
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    /**
+     * 登录
+     *
+     * @param username 用户名
+     * @param password 密码
+     * @return User对象
+     */
+    User login(String username, String password);
+
+    /**
+     * 用户名做公钥，密码做私钥生成Token
+     *
+     * @param username 用户名
+     * @param password 密码
+     * @return Token
+     */
+    String createToken(String username, String password);
 }

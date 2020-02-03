@@ -19,7 +19,9 @@ public enum ResultMessage {
     SUCCESS("操作成功！"),
     FAIL("删除失败!"),
     VALUE_NULL("数据为空"),
-    ISEXIST("存在同名标签或者分类")
+    ISEXIST("存在同名标签或者分类"),
+    LOGINFAIL("登录失败"),
+    UNLOGIN("未登录")
     ;
 
     private String messaage;

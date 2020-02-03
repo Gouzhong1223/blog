@@ -41,7 +41,7 @@ public class TagController {
         return new ResponseDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), insertTag);
     }
 
-    @GetMapping("listALl")
+    @GetMapping("listall")
     public ResponseDto listAllTags() {
         List<Tag> tags = tagService.listAllTags();
         if (CollectionUtils.isEmpty(tags)) {

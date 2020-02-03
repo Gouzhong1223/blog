@@ -5,6 +5,7 @@ import com.gouzhong1223.blog.mapper.TagMapper;
 import com.gouzhong1223.blog.pojo.Blog;
 import com.gouzhong1223.blog.pojo.Tag;
 import com.gouzhong1223.blog.service.TagService;
+import com.sun.javafx.tools.packager.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -36,14 +37,19 @@ public class TagServiceImpl implements TagService {
 
     @Override
     public Tag insertTag(String tagname) {
-        Tag tag = new Tag();
-        tag.setTagname(tagname);
-        tag.setCreatetime(new Date());
-        tag.setUpdatetime(new Date());
-        int i = tagMapper.insertSelective(tag);
-        if (i != 0) {
-            return tag;
+        Tag byTagname = tagMapper.selectOneByTagname(tagname);
+        if (byTagname != null) {
+            Tag tag = new Tag();
+            tag.setTagname(tagname);
+            tag.setCreatetime(new Date());
+            tag.setUpdatetime(new Date());
+            int i = tagMapper.insertSelective(tag);
+            if (i != 0) {
+                LOGGER.info("新增Tag{}", tag);
+                return tag;
+            }
         }
+        LOGGER.error("新增Tag失败，已经存在相同的Tag！");
         return null;
     }
 
