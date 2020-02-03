@@ -28,4 +28,6 @@ public interface BlogtagMapper {
 
     int deleteByTagid(@Param("tagid")Integer tagid);
 
+    int updateTagidByBlogid(@Param("updatedTagid")Integer updatedTagid,@Param("blogid")Integer blogid);
+
 }

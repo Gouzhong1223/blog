@@ -2,7 +2,6 @@ package com.gouzhong1223.blog.service;
 
 import com.gouzhong1223.blog.pojo.User;
 
-import java.util.List;
 
 /**
  * @Author : Gouzhong

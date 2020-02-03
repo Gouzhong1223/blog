@@ -2213,3 +2213,6 @@ com.alibaba.fastjson.JSONException: can not get javaBeanDeserializer. java.util.
 2020-02-03 21:34:42.726  INFO 63134 --- [http-nio-8087-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
 2020-02-03 21:34:42.782  INFO 63134 --- [http-nio-8087-exec-1] c.g.blog.controller.TagController        : 获取所有Tags成功！
 2020-02-03 21:34:42.784  INFO 63134 --- [http-nio-8087-exec-1] com.gouzhong1223.blog.aspect.LogAspect   : Result : ResponseDto(code=200, message=操作成功！, data=[Tag(id=4, tagname=tag1, createtime=Mon Feb 03 17:52:36 CST 2020, updatetime=Mon Feb 03 17:52:36 CST 2020), Tag(id=5, tagname=tag2, createtime=Mon Feb 03 17:53:33 CST 2020, updatetime=Mon Feb 03 17:53:33 CST 2020), Tag(id=6, tagname=tag3, createtime=Mon Feb 03 17:53:46 CST 2020, updatetime=Mon Feb 03 17:53:46 CST 2020)])
+2020-02-03 21:41:42.217  INFO 63134 --- [Thread-18] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-03 21:41:42.218  INFO 63134 --- [Thread-18] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-02-03 21:41:42.227  INFO 63134 --- [Thread-18] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

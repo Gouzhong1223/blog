@@ -75,4 +75,13 @@ public interface BlogService {
      * @return List<Blog>
      */
     PageResult<Blog> listBlogByPage(Integer pageNum, Integer pageSize);
+
+    /**
+     * 修改Blog
+     *
+     * @param blog   需要修改的Blog信息
+     * @param tagids 需要修改Blog对应的Tags
+     * @return 修改后的Blog
+     */
+    Blog updateBlog(Blog blog, List<Integer> tagids);
 }

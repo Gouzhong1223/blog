@@ -11,6 +11,7 @@ import com.gouzhong1223.blog.pojo.Tag;
 import com.gouzhong1223.blog.service.BlogService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -112,5 +113,20 @@ public class BlogServiceImpl implements BlogService {
         PageInfo<Blog> blogPageInfo = new PageInfo<>(blogs);
         LOGGER.info("开始封装分页数据", blogPageInfo);
         return new PageResult<>(blogPageInfo.getPageNum(), blogPageInfo.getPageSize(), blogPageInfo.getTotal(), blogPageInfo.getPages(), blogPageInfo.getList());
+    }
+
+    @Override
+    public Blog updateBlog(Blog blog, List<Integer> tagids) {
+        Blog selectByPrimaryKey = blogMapper.selectByPrimaryKey(blog.getId());
+        BeanUtils.copyProperties(blog, selectByPrimaryKey);
+        selectByPrimaryKey.setUpdatetime(new Date());
+        int update = blogMapper.updateByPrimaryKey(selectByPrimaryKey);
+        if (update != 0) {
+            for (Integer tagid : tagids) {
+                blogtagMapper.updateTagidByBlogid(tagid, blog.getId());
+            }
+            return selectByPrimaryKey;
+        }
+        return null;
     }
 }

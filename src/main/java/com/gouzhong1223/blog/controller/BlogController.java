@@ -150,4 +150,36 @@ public class BlogController {
         return ResponseDto.FAIL(blogPageResult);
     }
 
+    @PutMapping("update")
+    public ResponseDto updateBlog(@RequestBody JSONObject jsonObject) {
+        JSONObject jsonblog = jsonObject.getJSONObject("blog");
+        JSONArray jsontagids = jsonObject.getJSONArray("tagids");
+        Blog blog = jsonblog.toJavaObject(Blog.class);
+        List<Integer> tagids = jsontagids.toJavaList(Integer.class);
+        if (blog != null && !CollectionUtils.isEmpty(tagids)) {
+            LOGGER.info("修改id为{}的Blog", blog.getId());
+            Blog updateblog = blogService.updateBlog(blog, tagids);
+            if (updateblog != null) {
+                LOGGER.info("修改id为{}的Blog成功！", blog.getId());
+                return ResponseDto.builder()
+                        .code(ResultCode.SUCCESS.getCode())
+                        .message(ResultMessage.SUCCESS.getMessaage())
+                        .data(updateblog)
+                        .build();
+            }
+            LOGGER.error("修改id为{}的Blog失败！", blog.getId());
+            return ResponseDto.builder()
+                    .code(ResultCode.FAIL.getCode())
+                    .message(ResultMessage.FAIL.getMessaage())
+                    .data(null)
+                    .build();
+        }
+        LOGGER.error("修改id为{}的Blog失败！参数为空", blog.getId());
+        return ResponseDto.builder()
+                .code(ResultCode.FAIL.getCode())
+                .message(ResultMessage.FAIL.getMessaage())
+                .data(null)
+                .build();
+    }
+
 }
