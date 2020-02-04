@@ -3,6 +3,7 @@ package com.gouzhong1223.blog.service.impl;
 import com.gouzhong1223.blog.mapper.TypeMapper;
 import com.gouzhong1223.blog.pojo.Type;
 import com.gouzhong1223.blog.service.TypeService;
+import com.gouzhong1223.blog.util.DateTimeUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,8 +45,8 @@ public class TypeServiceImpl implements TypeService {
     public Type insertType(String typename) {
         Type type = new Type();
         type.setTypename(typename);
-        type.setCreatetime(new Date());
-        type.setUpdatetime(new Date());
+        type.setCreatetime(DateTimeUtil.getDateTime());
+        type.setUpdatetime(DateTimeUtil.getDateTime());
         typeMapper.insertSelective(type);
         return type;
     }
@@ -74,7 +75,7 @@ public class TypeServiceImpl implements TypeService {
             return null;
         }
         selectByPrimaryKey.setTypename(type.getTypename());
-        selectByPrimaryKey.setUpdatetime(new Date());
+        selectByPrimaryKey.setUpdatetime(DateTimeUtil.getDateTime());
         int i = typeMapper.updateByPrimaryKey(selectByPrimaryKey);
         if (i != 0) {
             return selectByPrimaryKey;

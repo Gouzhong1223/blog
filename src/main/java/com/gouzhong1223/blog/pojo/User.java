@@ -44,7 +44,7 @@ public class User implements Serializable {
      * 创建时间
      */
     @ApiModelProperty(value = "创建时间")
-    private LocalDateTime createTime;
+    private String createTime;
 
     /**
      * 邮箱
@@ -74,7 +74,7 @@ public class User implements Serializable {
      * 更新时间
      */
     @ApiModelProperty(value = "更新时间")
-    private LocalDateTime updateTime;
+    private String updateTime;
 
     /**
      * 用户名

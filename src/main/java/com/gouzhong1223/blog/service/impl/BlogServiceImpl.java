@@ -66,8 +66,6 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public int insertSelective(Blog blog, List<Integer> tagids) {
-//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//        LocalDate now = LocalDate.now();
         int insert = 0;
         if (blog != null) {
             blog.setCreatetime(DateTimeUtil.getDateTime());

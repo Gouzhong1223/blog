@@ -4,6 +4,7 @@ import com.gouzhong1223.blog.mapper.BlogtagMapper;
 import com.gouzhong1223.blog.mapper.TagMapper;
 import com.gouzhong1223.blog.pojo.Tag;
 import com.gouzhong1223.blog.service.TagService;
+import com.gouzhong1223.blog.util.DateTimeUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,8 +39,8 @@ public class TagServiceImpl implements TagService {
         if (byTagname == null) {
             Tag tag = new Tag();
             tag.setTagname(tagname);
-            tag.setCreatetime(new Date());
-            tag.setUpdatetime(new Date());
+            tag.setCreatetime(DateTimeUtil.getDateTime());
+            tag.setUpdatetime(DateTimeUtil.getDateTime());
             int i = tagMapper.insertSelective(tag);
             if (i != 0) {
                 LOGGER.info("新增Tag{}", tag);
@@ -59,7 +60,7 @@ public class TagServiceImpl implements TagService {
     @Override
     public Tag updateTag(Tag tag) {
         Tag select = tagMapper.selectByPrimaryKey(tag.getId());
-        select.setUpdatetime(new Date());
+        select.setUpdatetime(DateTimeUtil.getDateTime());
         select.setTagname(tag.getTagname());
         LOGGER.info("修改Tagid为{}的Tag", tag.getId());
         int i = tagMapper.updateByPrimaryKey(select);

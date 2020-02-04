@@ -30,13 +30,13 @@ public class Type implements Serializable {
 	* 创建时间
 	*/
     @ApiModelProperty(value="创建时间")
-    private Date createtime;
+    private String createtime;
 
     /**
 	* 更新时间
 	*/
     @ApiModelProperty(value="更新时间")
-    private Date updatetime;
+    private String updatetime;
 
     private static final long serialVersionUID = 1L;
 }
