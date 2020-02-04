@@ -2,6 +2,7 @@ package com.gouzhong1223.blog.interceptor;
 
 import com.alibaba.fastjson.JSONObject;
 import com.auth0.jwt.JWT;
+import com.gouzhong1223.blog.common.BlogException;
 import com.gouzhong1223.blog.common.ResultCode;
 import com.gouzhong1223.blog.common.ResultMessage;
 import com.gouzhong1223.blog.dto.ResponseDto;
@@ -32,12 +33,6 @@ public class LoginInterceptor implements HandlerInterceptor {
         if (!StringUtils.isAnyEmpty(username, token) && username.equals(JWT.decode(token).getClaim("username").asString())) {
             return true;
         }
-        //返回登录状态
-        response.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html; charset=utf-8");
-        ResponseDto resMsg = new ResponseDto<>(ResultCode.UNLOGIN.getCode(), ResultMessage.UNLOGIN.getMessaage());
-        response.getWriter().print(JSONObject.toJSONString(resMsg));
-        return false;
+        throw new BlogException(ResultCode.UNLOGIN.getCode(), "未登录！");
     }
-
 }

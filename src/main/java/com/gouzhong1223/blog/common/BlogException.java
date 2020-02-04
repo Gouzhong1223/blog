@@ -1,5 +1,8 @@
 package com.gouzhong1223.blog.common;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 /**
  * @Author : Gouzhong
  * @Blog : www.gouzhong1223.com
@@ -11,6 +14,11 @@ package com.gouzhong1223.blog.common;
  * @ProjectName : blog
  * @Version : 1.0.0
  */
+@Data
+@AllArgsConstructor
 public class BlogException extends Exception {
+    Integer code;
+    String message;
+
 
 }

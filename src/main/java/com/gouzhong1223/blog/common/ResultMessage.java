@@ -21,7 +21,8 @@ public enum ResultMessage {
     VALUE_NULL("数据为空"),
     ISEXIST("存在同名标签或者分类"),
     LOGINFAIL("登录失败"),
-    UNLOGIN("未登录")
+    UNLOGIN("未登录"),
+    SERVER("服务器打瞌睡啦！")
     ;
 
     private String messaage;

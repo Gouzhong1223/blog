@@ -209,3 +209,278 @@
 2020-02-04 12:28:40.821  INFO 16556 --- [http-nio-8087-exec-2] c.g.blog.service.impl.BlogServiceImpl    : 开始查询所有Blog
 2020-02-04 12:28:40.845  INFO 16556 --- [http-nio-8087-exec-2] c.g.blog.service.impl.BlogServiceImpl    : 开始封装分页数据
 2020-02-04 12:28:40.846  INFO 16556 --- [http-nio-8087-exec-2] com.gouzhong1223.blog.aspect.LogAspect   : Result : ResponseDto(code=200, message=操作成功！, data=PageResult(pageNum=1, pageSize=2, total=2, totalPage=1, list=[Blog(id=9, blogtitle=测试标题7, createtime=2020-02-04 12:28:38, updatetime=2020-02-03 23:57:18, blogtext=测试正文7, visible=1, typeid=1, share=0, blogimage=测试图片地址, introduction=测试简介), Blog(id=10, blogtitle=测试标题, createtime=2020-02-04 12:27:35, updatetime=2020-02-04 12:27:35, blogtext=测试正文, visible=1, typeid=1, share=0, blogimage=测试图片地址, introduction=测试简介)]))
+2020-02-04 12:51:40.769  INFO 16556 --- [Thread-16] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-04 12:51:40.770  INFO 16556 --- [Thread-16] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-02-04 12:51:40.779  INFO 16556 --- [Thread-16] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-02-04 12:51:51.132  INFO 16556 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Starting BlogApplication on localhost with PID 16556 (/Users/qingsong/Projects/IDEA/2020-01/blog/target/classes started by qingsong in /Users/qingsong/Projects/IDEA/2020-01/blog)
+2020-02-04 12:51:51.132  INFO 16556 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : The following profiles are active: dev
+2020-02-04 12:51:51.412  INFO 16556 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-04 12:51:51.413  INFO 16556 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-04 12:51:51.414  INFO 16556 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1ms. Found 0 repository interfaces.
+2020-02-04 12:51:51.452  WARN 16556 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.gouzhong1223.blog]' package. Please check your configuration.
+2020-02-04 12:51:51.482  INFO 16556 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4f8dffb0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-04 12:51:51.575  INFO 16556 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8087 (http)
+2020-02-04 12:51:51.577  INFO 16556 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-04 12:51:51.579  INFO 16556 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2020-02-04 12:51:51.596  INFO 16556 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-02-04 12:51:51.597  INFO 16556 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 459 ms
+2020-02-04 12:51:51.786  INFO 16556 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-04 12:51:52.042  WARN 16556 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/qingsong/Projects/IDEA/2020-01/blog/target/classes/mapper/BlogMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [/Users/qingsong/Projects/IDEA/2020-01/blog/target/classes/mapper/BlogMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.gouzhong1223.blog.pojo.Blog'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.gouzhong1223.blog.pojo.Blog
+2020-02-04 12:51:52.043  INFO 16556 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-04 12:51:52.043  INFO 16556 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-02-04 12:51:52.050  INFO 16556 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-02-04 12:51:52.064 ERROR 16556 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/qingsong/Projects/IDEA/2020-01/blog/target/classes/mapper/BlogMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [/Users/qingsong/Projects/IDEA/2020-01/blog/target/classes/mapper/BlogMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.gouzhong1223.blog.pojo.Blog'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.gouzhong1223.blog.pojo.Blog
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:627) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:607) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1321) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1160) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:843) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877) ~[spring-context-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549) ~[spring-context-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) ~[spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at com.gouzhong1223.blog.BlogApplication.main(BlogApplication.java:10) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_231]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_231]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_231]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_231]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/qingsong/Projects/IDEA/2020-01/blog/target/classes/mapper/BlogMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [/Users/qingsong/Projects/IDEA/2020-01/blog/target/classes/mapper/BlogMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.gouzhong1223.blog.pojo.Blog'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.gouzhong1223.blog.pojo.Blog
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	... 24 common frames omitted
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/qingsong/Projects/IDEA/2020-01/blog/target/classes/mapper/BlogMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [/Users/qingsong/Projects/IDEA/2020-01/blog/target/classes/mapper/BlogMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.gouzhong1223.blog.pojo.Blog'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.gouzhong1223.blog.pojo.Blog
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:595) ~[mybatis-spring-2.0.3.jar:2.0.3]
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:475) ~[mybatis-spring-2.0.3.jar:2.0.3]
+	at org.mybatis.spring.SqlSessionFactoryBean.getObject(SqlSessionFactoryBean.java:615) ~[mybatis-spring-2.0.3.jar:2.0.3]
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.sqlSessionFactory(MybatisAutoConfiguration.java:180) ~[mybatis-spring-boot-autoconfigure-2.1.1.jar:2.1.1]
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$826250e0.CGLIB$sqlSessionFactory$2(<generated>) ~[mybatis-spring-boot-autoconfigure-2.1.1.jar:2.1.1]
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$826250e0$$FastClassBySpringCGLIB$$3c23baaa.invoke(<generated>) ~[mybatis-spring-boot-autoconfigure-2.1.1.jar:2.1.1]
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244) ~[spring-core-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363) ~[spring-context-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$826250e0.sqlSessionFactory(<generated>) ~[mybatis-spring-boot-autoconfigure-2.1.1.jar:2.1.1]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_231]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_231]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_231]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_231]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	... 25 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [/Users/qingsong/Projects/IDEA/2020-01/blog/target/classes/mapper/BlogMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.gouzhong1223.blog.pojo.Blog'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.gouzhong1223.blog.pojo.Blog
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:122) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:94) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:593) ~[mybatis-spring-2.0.3.jar:2.0.3]
+	... 38 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.gouzhong1223.blog.pojo.Blog'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.gouzhong1223.blog.pojo.Blog
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:118) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElement(XMLMapperBuilder.java:262) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElement(XMLMapperBuilder.java:253) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElements(XMLMapperBuilder.java:245) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:118) ~[mybatis-3.5.3.jar:3.5.3]
+	... 40 common frames omitted
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.gouzhong1223.blog.pojo.Blog'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.gouzhong1223.blog.pojo.Blog
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:120) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:149) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:116) ~[mybatis-3.5.3.jar:3.5.3]
+	... 44 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Cannot find class: com.gouzhong1223.blog.pojo.Blog
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:200) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:89) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:261) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:116) ~[mybatis-3.5.3.jar:3.5.3]
+	... 46 common frames omitted
+
+2020-02-04 12:51:54.543  INFO 16556 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Starting BlogApplication on localhost with PID 16556 (/Users/qingsong/Projects/IDEA/2020-01/blog/target/classes started by qingsong in /Users/qingsong/Projects/IDEA/2020-01/blog)
+2020-02-04 12:51:54.544  INFO 16556 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : The following profiles are active: dev
+2020-02-04 12:51:54.922  INFO 16556 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-04 12:51:54.922  INFO 16556 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-04 12:51:54.933  INFO 16556 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10ms. Found 0 repository interfaces.
+2020-02-04 12:51:55.021  INFO 16556 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4f8dffb0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-04 12:51:55.233  INFO 16556 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8087 (http)
+2020-02-04 12:51:55.234  INFO 16556 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-04 12:51:55.234  INFO 16556 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2020-02-04 12:51:55.243  INFO 16556 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-02-04 12:51:55.243  INFO 16556 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 696 ms
+2020-02-04 12:51:55.670  INFO 16556 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-04 12:51:56.045  INFO 16556 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-04 12:51:56.065  INFO 16556 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8087 (http) with context path ''
+2020-02-04 12:51:56.066  INFO 16556 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Started BlogApplication in 1.561 seconds (JVM running for 1513.396)
+2020-02-04 12:51:56.068  INFO 16556 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-04 12:52:08.188  INFO 22169 --- [main] c.g.blog.mapper.BlogMapperTest           : Starting BlogMapperTest on localhost with PID 22169 (started by qingsong in /Users/qingsong/Projects/IDEA/2020-01/blog)
+2020-02-04 12:52:08.189  INFO 22169 --- [main] c.g.blog.mapper.BlogMapperTest           : The following profiles are active: dev
+2020-02-04 12:52:09.167  INFO 22169 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-04 12:52:09.169  INFO 22169 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-04 12:52:09.205  INFO 22169 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19ms. Found 0 repository interfaces.
+2020-02-04 12:52:09.825  INFO 22169 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$97c277ec] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-04 12:52:12.328  INFO 22169 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-04 12:52:13.788  INFO 22169 --- [main] c.g.blog.mapper.BlogMapperTest           : Started BlogMapperTest in 6.22 seconds (JVM running for 7.307)
+2020-02-04 12:52:14.123  INFO 22169 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-02-04 12:52:14.693  INFO 22169 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-02-04 12:52:14.913  INFO 22169 --- [Thread-3] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-04 12:52:14.914  INFO 22169 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-02-04 12:52:14.928  INFO 22169 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-02-04 12:53:53.858  INFO 16556 --- [Thread-35] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-04 22:50:42.650  INFO 43115 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Starting BlogApplication on localhost with PID 43115 (/Users/qingsong/Projects/IDEA/2020-01/blog/target/classes started by qingsong in /Users/qingsong/Projects/IDEA/2020-01/blog)
+2020-02-04 22:50:42.653  INFO 43115 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : The following profiles are active: dev
+2020-02-04 22:50:42.730  INFO 43115 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-04 22:50:42.731  INFO 43115 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-04 22:50:43.984  INFO 43115 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-04 22:50:43.989  INFO 43115 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-04 22:50:44.057  INFO 43115 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36ms. Found 0 repository interfaces.
+2020-02-04 22:50:44.763  INFO 43115 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$25853242] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-04 22:50:45.589  INFO 43115 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8087 (http)
+2020-02-04 22:50:45.624  INFO 43115 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-04 22:50:45.625  INFO 43115 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2020-02-04 22:50:45.824  INFO 43115 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-04 22:50:45.825  INFO 43115 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3093 ms
+2020-02-04 22:50:47.080  INFO 43115 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-04 22:50:48.417  INFO 43115 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-04 22:50:48.502  INFO 43115 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8087 (http) with context path ''
+2020-02-04 22:50:48.506  INFO 43115 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Started BlogApplication in 6.513 seconds (JVM running for 10.385)
+2020-02-04 22:50:57.406  INFO 43115 --- [http-nio-8087-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-04 22:50:57.407  INFO 43115 --- [http-nio-8087-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-04 22:50:57.427  INFO 43115 --- [http-nio-8087-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 20 ms
+2020-02-04 22:50:57.505  INFO 43115 --- [http-nio-8087-exec-1] com.gouzhong1223.blog.aspect.LogAspect   : Request : {url='http://localhost:8087/api/blog/blogdetail/9', ip='127.0.0.1', classMethod='com.gouzhong1223.blog.controller.BlogController.blogDetail', args=[9]}
+2020-02-04 22:50:57.514  INFO 43115 --- [http-nio-8087-exec-1] c.g.blog.controller.BlogController       : 查询id为9的Blog
+2020-02-04 22:50:57.543  INFO 43115 --- [http-nio-8087-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-02-04 22:50:58.065  INFO 43115 --- [http-nio-8087-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-02-04 22:50:58.135  INFO 43115 --- [http-nio-8087-exec-1] c.g.blog.controller.BlogController       : 开始获取id为9的Blog所有的标签
+2020-02-04 22:50:58.178  INFO 43115 --- [http-nio-8087-exec-1] c.g.blog.controller.BlogController       : 获取id为9的Blog所属分类
+2020-02-04 22:50:58.183  INFO 43115 --- [http-nio-8087-exec-1] com.gouzhong1223.blog.aspect.LogAspect   : Result : ResponseDto(code=200, message=操作成功！, data={blog=Blog(id=9, blogtitle=测试标题7, createtime=2020-02-04 12:28:38, updatetime=2020-02-03 23:57:18, blogtext=测试正文7, visible=1, typeid=1, share=0, blogimage=测试图片地址, introduction=测试简介), type=null, tags=[null, null, null]})
+2020-02-04 22:51:03.261  INFO 43115 --- [http-nio-8087-exec-3] com.gouzhong1223.blog.aspect.LogAspect   : Request : {url='http://localhost:8087/api/blog/blogdetail/1', ip='127.0.0.1', classMethod='com.gouzhong1223.blog.controller.BlogController.blogDetail', args=[1]}
+2020-02-04 22:51:03.262  INFO 43115 --- [http-nio-8087-exec-3] c.g.blog.controller.BlogController       : 查询id为1的Blog
+2020-02-04 22:51:03.269 ERROR 43115 --- [http-nio-8087-exec-3] c.g.blog.controller.BlogController       : 获取id为1的Blog失败！！！
+2020-02-04 22:51:03.274  WARN 43115 --- [http-nio-8087-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [BlogException(message=null)]
+2020-02-04 23:02:36.327  INFO 43115 --- [Thread-23] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-04 23:02:36.328  INFO 43115 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-02-04 23:02:36.341  INFO 43115 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-02-04 23:03:16.688  INFO 45805 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Starting BlogApplication on localhost with PID 45805 (/Users/qingsong/Projects/IDEA/2020-01/blog/target/classes started by qingsong in /Users/qingsong/Projects/IDEA/2020-01/blog)
+2020-02-04 23:03:16.691  INFO 45805 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : The following profiles are active: dev
+2020-02-04 23:03:16.786  INFO 45805 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-04 23:03:16.787  INFO 45805 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-04 23:03:17.991  INFO 45805 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-04 23:03:17.994  INFO 45805 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-04 23:03:18.029  INFO 45805 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21ms. Found 0 repository interfaces.
+2020-02-04 23:03:18.489  INFO 45805 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$439d0fdb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-04 23:03:18.973  INFO 45805 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8087 (http)
+2020-02-04 23:03:18.992  INFO 45805 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-04 23:03:18.993  INFO 45805 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2020-02-04 23:03:19.153  INFO 45805 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-04 23:03:19.153  INFO 45805 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2366 ms
+2020-02-04 23:03:20.111  INFO 45805 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-04 23:03:20.968  INFO 45805 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-04 23:03:21.031  INFO 45805 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8087 (http) with context path ''
+2020-02-04 23:03:21.035  INFO 45805 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Started BlogApplication in 5.299 seconds (JVM running for 6.804)
+2020-02-04 23:03:26.127  INFO 45805 --- [http-nio-8087-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-04 23:03:26.128  INFO 45805 --- [http-nio-8087-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-04 23:03:26.141  INFO 45805 --- [http-nio-8087-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2020-02-04 23:03:26.249  WARN 45805 --- [http-nio-8087-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [BlogException(code=205, message=未登录！)]
+2020-02-04 23:04:18.138  INFO 45805 --- [Thread-20] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-04 23:04:24.809  INFO 46054 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Starting BlogApplication on localhost with PID 46054 (/Users/qingsong/Projects/IDEA/2020-01/blog/target/classes started by qingsong in /Users/qingsong/Projects/IDEA/2020-01/blog)
+2020-02-04 23:04:24.812  INFO 46054 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : The following profiles are active: dev
+2020-02-04 23:04:24.857  INFO 46054 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-04 23:04:24.857  INFO 46054 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-04 23:04:25.572  INFO 46054 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-04 23:04:25.574  INFO 46054 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-04 23:04:25.601  INFO 46054 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16ms. Found 0 repository interfaces.
+2020-02-04 23:04:26.001  INFO 46054 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c72f62bd] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-04 23:04:26.447  INFO 46054 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8087 (http)
+2020-02-04 23:04:26.471  INFO 46054 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-04 23:04:26.471  INFO 46054 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2020-02-04 23:04:26.621  INFO 46054 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-04 23:04:26.621  INFO 46054 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1763 ms
+2020-02-04 23:04:27.487  INFO 46054 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-04 23:04:28.245  INFO 46054 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-04 23:04:28.303  INFO 46054 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8087 (http) with context path ''
+2020-02-04 23:04:28.307  INFO 46054 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Started BlogApplication in 3.995 seconds (JVM running for 6.615)
+2020-02-04 23:04:31.557  INFO 46054 --- [http-nio-8087-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-04 23:04:31.557  INFO 46054 --- [http-nio-8087-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-04 23:04:31.568  INFO 46054 --- [http-nio-8087-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2020-02-04 23:04:31.674  WARN 46054 --- [http-nio-8087-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [BlogException(code=205, message=未登录！)]
+2020-02-04 23:05:17.869  INFO 46054 --- [Thread-18] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-04 23:05:23.766  INFO 46267 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Starting BlogApplication on localhost with PID 46267 (/Users/qingsong/Projects/IDEA/2020-01/blog/target/classes started by qingsong in /Users/qingsong/Projects/IDEA/2020-01/blog)
+2020-02-04 23:05:23.770  INFO 46267 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : The following profiles are active: dev
+2020-02-04 23:05:23.945  INFO 46267 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-04 23:05:23.945  INFO 46267 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-04 23:05:25.206  INFO 46267 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-04 23:05:25.209  INFO 46267 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-04 23:05:25.247  INFO 46267 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24ms. Found 0 repository interfaces.
+2020-02-04 23:05:25.658  INFO 46267 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3d09b517] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-04 23:05:26.142  INFO 46267 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8087 (http)
+2020-02-04 23:05:26.164  INFO 46267 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-04 23:05:26.164  INFO 46267 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2020-02-04 23:05:26.336  INFO 46267 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-04 23:05:26.337  INFO 46267 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2391 ms
+2020-02-04 23:05:27.241  INFO 46267 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-04 23:05:28.108  INFO 46267 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-04 23:05:28.168  INFO 46267 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8087 (http) with context path ''
+2020-02-04 23:05:28.172  INFO 46267 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Started BlogApplication in 5.217 seconds (JVM running for 6.441)
+2020-02-04 23:05:30.647  INFO 46267 --- [http-nio-8087-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-04 23:05:30.647  INFO 46267 --- [http-nio-8087-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-04 23:05:30.667  INFO 46267 --- [http-nio-8087-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 19 ms
+2020-02-04 23:05:30.821  WARN 46267 --- [http-nio-8087-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [BlogException(code=205, message=未登录！)]
+2020-02-04 23:08:14.743  INFO 46267 --- [Thread-19] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-04 23:08:20.140  INFO 46884 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Starting BlogApplication on localhost with PID 46884 (/Users/qingsong/Projects/IDEA/2020-01/blog/target/classes started by qingsong in /Users/qingsong/Projects/IDEA/2020-01/blog)
+2020-02-04 23:08:20.142  INFO 46884 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : The following profiles are active: dev
+2020-02-04 23:08:20.180  INFO 46884 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-04 23:08:20.180  INFO 46884 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-04 23:08:21.502  INFO 46884 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-04 23:08:21.505  INFO 46884 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-04 23:08:21.560  INFO 46884 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29ms. Found 0 repository interfaces.
+2020-02-04 23:08:22.173  INFO 46884 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$71df03fa] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-04 23:08:22.765  INFO 46884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8087 (http)
+2020-02-04 23:08:22.850  INFO 46884 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-04 23:08:22.852  INFO 46884 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2020-02-04 23:08:23.044  INFO 46884 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-04 23:08:23.044  INFO 46884 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2864 ms
+2020-02-04 23:08:23.873  INFO 46884 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-04 23:08:24.607  INFO 46884 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-04 23:08:24.665  INFO 46884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8087 (http) with context path ''
+2020-02-04 23:08:24.669  INFO 46884 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Started BlogApplication in 4.974 seconds (JVM running for 6.173)
+2020-02-04 23:08:30.267  INFO 46884 --- [http-nio-8087-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-04 23:08:30.267  INFO 46884 --- [http-nio-8087-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-04 23:08:30.292  INFO 46884 --- [http-nio-8087-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 25 ms
+2020-02-04 23:08:30.419  WARN 46884 --- [http-nio-8087-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [BlogException(code=205, message=未登录！)]
+2020-02-04 23:08:51.108  WARN 46884 --- [http-nio-8087-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [BlogException(code=205, message=未登录！)]
+2020-02-04 23:08:54.308  INFO 46884 --- [http-nio-8087-exec-3] com.gouzhong1223.blog.aspect.LogAspect   : Request : {url='http://localhost:8087/api/blog/allblogs', ip='127.0.0.1', classMethod='com.gouzhong1223.blog.controller.BlogController.listAllBlogs', args=[]}
+2020-02-04 23:08:54.312  INFO 46884 --- [http-nio-8087-exec-3] c.g.blog.controller.BlogController       : 查询所有的Blog
+2020-02-04 23:08:54.334  INFO 46884 --- [http-nio-8087-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-02-04 23:08:54.727  INFO 46884 --- [http-nio-8087-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-02-04 23:08:54.828  INFO 46884 --- [http-nio-8087-exec-3] com.gouzhong1223.blog.aspect.LogAspect   : Result : ResponseDto(code=200, message=操作成功！, data=[Blog(id=9, blogtitle=测试标题7, createtime=2020-02-04 12:28:38, updatetime=2020-02-03 23:57:18, blogtext=测试正文7, visible=1, typeid=1, share=0, blogimage=测试图片地址, introduction=测试简介), Blog(id=10, blogtitle=测试标题, createtime=2020-02-04 12:27:35, updatetime=2020-02-04 12:27:35, blogtext=测试正文, visible=1, typeid=1, share=0, blogimage=测试图片地址, introduction=测试简介)])
+2020-02-04 23:09:00.808  INFO 46884 --- [http-nio-8087-exec-5] com.gouzhong1223.blog.aspect.LogAspect   : Request : {url='http://localhost:8087/api/blog/blogdetail/1', ip='127.0.0.1', classMethod='com.gouzhong1223.blog.controller.BlogController.blogDetail', args=[1]}
+2020-02-04 23:09:00.809  INFO 46884 --- [http-nio-8087-exec-5] c.g.blog.controller.BlogController       : 查询id为1的Blog
+2020-02-04 23:09:00.816 ERROR 46884 --- [http-nio-8087-exec-5] c.g.blog.controller.BlogController       : 获取id为1的Blog失败！！！
+2020-02-04 23:09:00.818  WARN 46884 --- [http-nio-8087-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [BlogException(code=201, message=操作失败!)]
+2020-02-04 23:09:12.984  INFO 46884 --- [http-nio-8087-exec-6] com.gouzhong1223.blog.aspect.LogAspect   : Request : {url='http://localhost:8087/api/blog/pagelist', ip='127.0.0.1', classMethod='com.gouzhong1223.blog.controller.BlogController.listAllBlogByPage', args=[1, 1]}
+2020-02-04 23:09:12.985  INFO 46884 --- [http-nio-8087-exec-6] c.g.blog.controller.BlogController       : 开始分页查询数据，当前页码为1，当前每一页大小为1
+2020-02-04 23:09:12.985  INFO 46884 --- [http-nio-8087-exec-6] c.g.blog.service.impl.BlogServiceImpl    : 封装分页参数，当前页数1，每一页大小1
+2020-02-04 23:09:12.988  INFO 46884 --- [http-nio-8087-exec-6] c.g.blog.service.impl.BlogServiceImpl    : 开始查询所有Blog
+2020-02-04 23:09:13.040  INFO 46884 --- [http-nio-8087-exec-6] c.g.blog.service.impl.BlogServiceImpl    : 开始封装分页数据
+2020-02-04 23:09:13.041  INFO 46884 --- [http-nio-8087-exec-6] com.gouzhong1223.blog.aspect.LogAspect   : Result : ResponseDto(code=200, message=操作成功！, data=PageResult(pageNum=1, pageSize=1, total=1, totalPage=1, list=[Blog(id=9, blogtitle=测试标题7, createtime=2020-02-04 12:28:38, updatetime=2020-02-03 23:57:18, blogtext=测试正文7, visible=1, typeid=1, share=0, blogimage=测试图片地址, introduction=测试简介)]))
+2020-02-04 23:09:16.223  INFO 46884 --- [http-nio-8087-exec-8] com.gouzhong1223.blog.aspect.LogAspect   : Request : {url='http://localhost:8087/api/tag/listall', ip='127.0.0.1', classMethod='com.gouzhong1223.blog.controller.TagController.listAllTags', args=[]}
+2020-02-04 23:09:16.234 ERROR 46884 --- [http-nio-8087-exec-8] c.g.blog.controller.TagController        : 获取到的Tags为空
+2020-02-04 23:09:16.235  INFO 46884 --- [http-nio-8087-exec-8] com.gouzhong1223.blog.aspect.LogAspect   : Result : ResponseDto(code=201, message=操作失败!, data=null)
+2020-02-04 23:09:19.299  INFO 46884 --- [http-nio-8087-exec-10] com.gouzhong1223.blog.aspect.LogAspect   : Request : {url='http://localhost:8087/api/admin/user/login', ip='127.0.0.1', classMethod='com.gouzhong1223.blog.controller.admin.UserController.login', args=[demoData, demoData, org.apache.catalina.session.StandardSessionFacade@600fcfc7, {}]}
+2020-02-04 23:09:19.322 ERROR 46884 --- [http-nio-8087-exec-10] c.g.blog.service.impl.UserServiceImpl    : 不存在用户名为demoData的用户
+2020-02-04 23:09:19.323 ERROR 46884 --- [http-nio-8087-exec-10] c.g.b.controller.admin.UserController    : 登录失败！
+2020-02-04 23:09:19.323  INFO 46884 --- [http-nio-8087-exec-10] com.gouzhong1223.blog.aspect.LogAspect   : Result : ResponseDto(code=204, message=登录失败, data=null)
+2020-02-04 23:09:32.430  INFO 46884 --- [http-nio-8087-exec-2] com.gouzhong1223.blog.aspect.LogAspect   : Request : {url='http://localhost:8087/api/admin/user/login', ip='127.0.0.1', classMethod='com.gouzhong1223.blog.controller.admin.UserController.login', args=[demoData, demoData, org.apache.catalina.session.StandardSessionFacade@3902e38d, {}]}
+2020-02-04 23:09:32.433 ERROR 46884 --- [http-nio-8087-exec-2] c.g.blog.service.impl.UserServiceImpl    : 不存在用户名为demoData的用户
+2020-02-04 23:09:32.433 ERROR 46884 --- [http-nio-8087-exec-2] c.g.b.controller.admin.UserController    : 登录失败！
+2020-02-04 23:09:32.433  INFO 46884 --- [http-nio-8087-exec-2] com.gouzhong1223.blog.aspect.LogAspect   : Result : ResponseDto(code=204, message=登录失败, data=null)
+2020-02-04 23:10:10.878  INFO 46884 --- [Thread-19] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-04 23:10:10.880  INFO 46884 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-02-04 23:10:10.887  INFO 46884 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -1,5 +1,6 @@
 package com.gouzhong1223.blog.controller;
 
+import com.gouzhong1223.blog.common.BlogException;
 import com.gouzhong1223.blog.common.PageResult;
 import com.gouzhong1223.blog.common.ResultCode;
 import com.gouzhong1223.blog.common.ResultMessage;
@@ -56,7 +57,7 @@ public class BlogController {
     }
 
     @GetMapping("/blogdetail/{id}")
-    public ResponseDto blogDetail(@PathVariable("id") Integer id) {
+    public ResponseDto blogDetail(@PathVariable("id") Integer id) throws BlogException {
         LOGGER.info("查询id为{}的Blog", id);
         Blog blog = blogService.selectBlogById(id);
         if (blog != null) {
@@ -79,11 +80,7 @@ public class BlogController {
                     .build();
         }
         LOGGER.error("获取id为{}的Blog失败！！！", id);
-        return ResponseDto.builder()
-                .code(ResultCode.FAIL.getCode())
-                .message(ResultMessage.FAIL.getMessaage())
-                .data(null)
-                .build();
+        throw new BlogException(ResultCode.FAIL.getCode(), ResultMessage.FAIL.getMessaage());
     }
 
     @GetMapping("/pagelist")

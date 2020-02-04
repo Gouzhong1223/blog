@@ -21,7 +21,8 @@ public enum ResultCode {
     VALUE_NULL(202),
     ISEXIST(203),
     LOGINFAIL(204),
-    UNLOGIN(205)
+    UNLOGIN(205),
+    SERVERFAIL(404)
     ;
 
     private Integer code;

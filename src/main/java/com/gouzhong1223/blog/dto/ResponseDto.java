@@ -29,9 +29,12 @@ public class ResponseDto<T> {
     private String message;
     private T data;
 
-    public ResponseDto(Integer code, String messaage) {
-        ResponseDto.builder().code(code).message(message).code(null).build();
+    public ResponseDto(Integer code, String message) {
+        this.code = code;
+        this.message = message;
+        this.data = null;
     }
+
 
     public static <T> ResponseDto<T> SUCCESS(T data) {
         return new ResponseDto<T>(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), data);
