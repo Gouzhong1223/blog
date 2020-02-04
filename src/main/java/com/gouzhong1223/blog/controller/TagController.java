@@ -32,15 +32,6 @@ public class TagController {
     private TagService tagService;
     public static final Logger LOGGER = LoggerFactory.getLogger(TagController.class);
 
-    @PostMapping("/insert")
-    public ResponseDto insertTag(@RequestParam("tagname") String tagname) {
-        Tag insertTag = tagService.insertTag(tagname);
-        if (insertTag == null) {
-            return new ResponseDto(ResultCode.FAIL.getCode(), ResultMessage.FAIL.getMessaage());
-        }
-        return new ResponseDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), insertTag);
-    }
-
     @GetMapping("listall")
     public ResponseDto listAllTags() {
         List<Tag> tags = tagService.listAllTags();
@@ -50,33 +41,5 @@ public class TagController {
         }
         LOGGER.info("获取所有Tags成功！");
         return new ResponseDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), tags);
-    }
-
-    @PutMapping("/update")
-    public ResponseDto updateTag(@RequestBody Tag tag) {
-        if (tag != null) {
-            LOGGER.info("更新id为{}的Tag", tag.getId());
-            Tag updateTag = tagService.updateTag(tag);
-            if (updateTag != null) {
-                LOGGER.info("更新成功！");
-                return new ResponseDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), updateTag);
-            }
-            LOGGER.error("更新id为{}的Tag失败", tag.getId());
-            return new ResponseDto(ResultCode.FAIL.getCode(), ResultMessage.FAIL.getMessaage());
-        }
-        LOGGER.error("参数为空,更新失败");
-        return new ResponseDto(ResultCode.VALUE_NULL.getCode(), ResultMessage.VALUE_NULL.getMessaage());
-    }
-
-    @DeleteMapping("/delete/{id}")
-    public ResponseDto deleteTag(@PathVariable("id") Integer id) {
-        Tag tag = tagService.selectTagById(id);
-        if (tag != null) {
-            tagService.deleteTagByTagid(id);
-            LOGGER.info("删除id为{}的Tag", id);
-            return new ResponseDto(ResultCode.SUCCESS.getCode(), ResultMessage.SUCCESS.getMessaage(), tag);
-        }
-        LOGGER.error("删除id为{}的Tag失败，Tag不存在！", id);
-        return new ResponseDto(ResultCode.FAIL.getCode(), ResultMessage.FAIL.getMessaage());
     }
 }

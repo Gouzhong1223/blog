@@ -1,6 +1,5 @@
-package com.gouzhong1223.blog.controller;
+package com.gouzhong1223.blog.controller.admin;
 
-import com.auth0.jwt.JWT;
 import com.gouzhong1223.blog.common.ResultCode;
 import com.gouzhong1223.blog.common.ResultMessage;
 import com.gouzhong1223.blog.dto.ResponseDto;
@@ -30,7 +29,7 @@ import java.util.HashMap;
  * @Version : 1.0.0
  */
 @RestController
-@RequestMapping("api/admin")
+@RequestMapping("api/admin/user")
 public class UserController {
 
     @Autowired
