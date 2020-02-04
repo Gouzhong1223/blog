@@ -27,7 +27,7 @@ import java.util.Arrays;
 public class LogAspect {
     private final Logger logger = LoggerFactory.getLogger(LogAspect.class);
 
-    @Pointcut("execution(* com.gouzhong1223.blog.controller.*.*(..))")
+    @Pointcut("execution(* com.gouzhong1223.blog.controller..*(..))")
     public void log() {
     }
 

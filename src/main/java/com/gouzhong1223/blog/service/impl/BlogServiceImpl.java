@@ -7,20 +7,16 @@ import com.gouzhong1223.blog.mapper.BlogMapper;
 import com.gouzhong1223.blog.mapper.BlogtagMapper;
 import com.gouzhong1223.blog.pojo.Blog;
 import com.gouzhong1223.blog.pojo.Blogtag;
-import com.gouzhong1223.blog.pojo.Tag;
 import com.gouzhong1223.blog.service.BlogService;
 import com.gouzhong1223.blog.util.DateTimeUtil;
-import org.apache.commons.lang3.time.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
+
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -115,7 +111,13 @@ public class BlogServiceImpl implements BlogService {
         PageHelper.startPage(pageNum, pageSize);
         LOGGER.info("开始查询所有Blog");
         List<Blog> blogs = blogMapper.selectAllBlogs();
-        PageInfo<Blog> blogPageInfo = new PageInfo<>(blogs);
+        ArrayList<Blog> visitBlogs = new ArrayList<>();
+        for (Blog blog : blogs) {
+            if (blog.getVisible() == 1) {
+                visitBlogs.add(blog);
+            }
+        }
+        PageInfo<Blog> blogPageInfo = new PageInfo<>(visitBlogs);
         LOGGER.info("开始封装分页数据", blogPageInfo);
         return new PageResult<>(blogPageInfo.getPageNum(), blogPageInfo.getPageSize(), blogPageInfo.getTotal(), blogPageInfo.getPages(), blogPageInfo.getList());
     }
@@ -137,5 +139,16 @@ public class BlogServiceImpl implements BlogService {
             return selectByPrimaryKey;
         }
         return null;
+    }
+
+    @Override
+    public int updateBlogVisible(Integer id) {
+        Blog blog = blogMapper.selectByPrimaryKey(id);
+        int update = 0;
+        if (blog.getVisible() == 0) {
+            update = blogMapper.updateVisibleById(1, id);
+        }
+        update = blogMapper.updateVisibleById(0, id);
+        return update;
     }
 }

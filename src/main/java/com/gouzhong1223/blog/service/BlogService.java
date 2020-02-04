@@ -83,4 +83,12 @@ public interface BlogService {
      * @return 修改后的Blog
      */
     Blog updateBlog(Blog blog, List<Integer> tagids);
+
+    /**
+     * 更改Blog显示状态
+     *
+     * @param id
+     * @return
+     */
+    int updateBlogVisible(Integer id);
 }

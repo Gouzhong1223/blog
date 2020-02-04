@@ -78,7 +78,7 @@ public class UserServiceImpl implements UserService {
         User user = userMapper.selectOneByUsername(username);
         if (user != null) {
             if (MD5Util.code(password).equals(user.getPassword())) {
-                LOGGER.info("用户名为{}的用户尝试登录，密码为{},密码错误，登录成功！", username, password);
+                LOGGER.info("用户名为{}的用户尝试登录，密码为{},登录成功！", username, MD5Util.code(password));
                 return user;
             }
             LOGGER.error("用户名为{}的用户尝试登录，密码为{},密码错误，登录失败！", username, password);

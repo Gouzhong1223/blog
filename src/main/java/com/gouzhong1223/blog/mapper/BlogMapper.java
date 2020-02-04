@@ -42,4 +42,7 @@ public interface BlogMapper {
     List<Blog> selectAllBlogs();
 
     List<Blog> selectAllByTypeid(@Param("typeid") Integer typeid);
+
+    int updateVisibleById(@Param("updatedVisible")Integer updatedVisible,@Param("id")Integer id);
+
 }

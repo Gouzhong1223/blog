@@ -2,6 +2,7 @@ package com.gouzhong1223.blog.controller.admin;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.gouzhong1223.blog.common.PageResult;
 import com.gouzhong1223.blog.common.ResultCode;
 import com.gouzhong1223.blog.common.ResultMessage;
 import com.gouzhong1223.blog.controller.BlogController;
@@ -116,6 +117,37 @@ public class AdminBlogController {
                     .build();
         }
         LOGGER.error("修改id为{}的Blog失败！参数为空", blog.getId());
+        return ResponseDto.builder()
+                .code(ResultCode.FAIL.getCode())
+                .message(ResultMessage.FAIL.getMessaage())
+                .data(null)
+                .build();
+    }
+
+    @GetMapping("/pagelist")
+    public ResponseDto listAllBlogByPage(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+                                         @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize) {
+        LOGGER.info("开始分页查询数据，当前页码为{}，当前每一页大小为{}", pageNum, pageSize);
+        PageResult<Blog> blogPageResult = blogService.listBlogByPage(pageNum, pageSize);
+        if (!CollectionUtils.isEmpty(blogPageResult.getList())) {
+            return ResponseDto.SUCCESS(blogPageResult);
+        }
+        LOGGER.error("分页查询数据，当前页码为{}，当前每一页大小为{}，失败！！, pageNum, pageSize");
+        return ResponseDto.FAIL(blogPageResult);
+    }
+
+    @PutMapping("/updatevisible/{id}")
+    public ResponseDto updateBlogVisible(@PathVariable("id") Integer id) {
+        int update = blogService.updateBlogVisible(id);
+        if (update != 0) {
+            LOGGER.info("修改id为{}的Blog的显示状态成功！", id);
+            return ResponseDto.builder()
+                    .code(ResultCode.SUCCESS.getCode())
+                    .message(ResultMessage.SUCCESS.getMessaage())
+                    .data(id)
+                    .build();
+        }
+        LOGGER.error("修改id为{}的Blog的显示状态失败！", id);
         return ResponseDto.builder()
                 .code(ResultCode.FAIL.getCode())
                 .message(ResultMessage.FAIL.getMessaage())
