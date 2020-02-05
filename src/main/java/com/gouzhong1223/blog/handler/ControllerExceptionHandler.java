@@ -2,7 +2,6 @@ package com.gouzhong1223.blog.handler;
 
 import com.gouzhong1223.blog.common.BlogException;
 import com.gouzhong1223.blog.common.ResultCode;
-import com.gouzhong1223.blog.common.ResultMessage;
 import com.gouzhong1223.blog.dto.ResponseDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
