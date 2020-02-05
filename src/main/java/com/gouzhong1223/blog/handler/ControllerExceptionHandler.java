@@ -32,4 +32,11 @@ public class ControllerExceptionHandler {
     public ResponseDto handlerBlogException(HttpServletRequest request, BlogException ex) {
         return new ResponseDto(ex.getCode(), ex.getMessage());
     }
+
+    @ExceptionHandler(Exception.class)
+    @ResponseBody
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ResponseDto handlerAllException(HttpServletRequest request, Exception ex) {
+        return new ResponseDto(ResultCode.FAIL.getCode(), ex.getMessage());
+    }
 }

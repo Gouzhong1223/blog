@@ -124,7 +124,7 @@ public class AdminBlogController {
                 .build();
     }
 
-    @GetMapping("/pagelist")
+    @PostMapping("/pagelist")
     public ResponseDto listAllBlogByPage(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
                                          @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize) {
         LOGGER.info("开始分页查询数据，当前页码为{}，当前每一页大小为{}", pageNum, pageSize);

@@ -4,6 +4,7 @@ import com.gouzhong1223.blog.common.PageResult;
 import com.gouzhong1223.blog.common.ResultCode;
 import com.gouzhong1223.blog.common.ResultMessage;
 import com.gouzhong1223.blog.pojo.Blog;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,8 +26,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class ResponseDto<T> {
+    @ApiModelProperty("返回状态码")
     private Integer code;
+    @ApiModelProperty("返回提示信息")
     private String message;
+    @ApiModelProperty("返回的封装数据")
     private T data;
 
     public ResponseDto(Integer code, String message) {

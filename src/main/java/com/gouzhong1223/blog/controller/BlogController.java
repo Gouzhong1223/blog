@@ -12,6 +12,7 @@ import com.gouzhong1223.blog.pojo.Type;
 import com.gouzhong1223.blog.service.BlogService;
 import com.gouzhong1223.blog.service.TagService;
 import com.gouzhong1223.blog.service.TypeService;
+import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("api/blog")
+@Api("博客服务接口")
 public class BlogController {
 
     @Autowired()
@@ -46,6 +48,8 @@ public class BlogController {
     private TagService tagService;
     public static final Logger LOGGER = LoggerFactory.getLogger(BlogController.class);
 
+    @ApiOperation(value = "根据博客显示状态，直接查询出所有显示状态为1的Blog", notes = "查询所有Blog列表")
+    @ApiResponse(code = 200, message = "查询成功！")
     @GetMapping("allblogs")
     public ResponseDto listAllBlogs() {
         LOGGER.info("查询所有的Blog");
@@ -56,6 +60,12 @@ public class BlogController {
                 .build();
     }
 
+    @ApiOperation(value = "根据Blog主键查询出Blog所有的详情", notes = "获取Blog详情")
+    @ApiImplicitParam(name = "id", value = "Blog主键", required = true, dataType = "Integer", paramType = "path", example = "1")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "操作成功！", response = ResponseDto.class),
+            @ApiResponse(code = 201, message = "操作失败！")
+    })
     @GetMapping("/blogdetail/{id}")
     public ResponseDto blogDetail(@PathVariable("id") Integer id) throws BlogException {
         LOGGER.info("查询id为{}的Blog", id);
@@ -83,7 +93,16 @@ public class BlogController {
         throw new BlogException(ResultCode.FAIL.getCode(), ResultMessage.FAIL.getMessaage());
     }
 
-    @GetMapping("/pagelist")
+    @PostMapping("/pagelist")
+    @ApiOperation(value = "分页查询Blogs",httpMethod = "POST")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "pageNum", value = "当前页码", dataType = "Integer", paramType = "body", required = false, defaultValue = "1"),
+            @ApiImplicitParam(name = "pageSize", value = "每页大小", dataType = "Integer", paramType = "body", required = false, defaultValue = "5")
+    })
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "操作成功", response = ResponseDto.class),
+            @ApiResponse(code = 201, message = "操作失败", response = ResponseDto.class)
+    })
     public ResponseDto listAllBlogByPage(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
                                          @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize) {
         LOGGER.info("开始分页查询数据，当前页码为{}，当前每一页大小为{}", pageNum, pageSize);
