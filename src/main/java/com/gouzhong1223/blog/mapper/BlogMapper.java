@@ -1,6 +1,9 @@
 package com.gouzhong1223.blog.mapper;
 
-import com.gouzhong1223.blog.pojo.Blog;import org.apache.ibatis.annotations.Param;import java.util.List;
+import com.gouzhong1223.blog.pojo.Blog;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * @Author : Gouzhong
@@ -11,7 +14,7 @@ import com.gouzhong1223.blog.pojo.Blog;import org.apache.ibatis.annotations.Para
  * @Since : JDK 1.8
  * @PackageName : com.gouzhong1223.blog.mapper
  * @ProjectName : blog
- * @Version : ${VERSION}
+ * @Version : 1.0.0
  */
 public interface BlogMapper {
     int deleteByPrimaryKey(Integer id);
@@ -43,6 +46,6 @@ public interface BlogMapper {
 
     List<Blog> selectAllByTypeid(@Param("typeid") Integer typeid);
 
-    int updateVisibleById(@Param("updatedVisible")Integer updatedVisible,@Param("id")Integer id);
+    int updateVisibleById(@Param("updatedVisible") Integer updatedVisible, @Param("id") Integer id);
 
 }

@@ -5,6 +5,9 @@ import com.gouzhong1223.blog.common.ResultMessage;
 import com.gouzhong1223.blog.dto.ResponseDto;
 import com.gouzhong1223.blog.pojo.Type;
 import com.gouzhong1223.blog.service.TypeService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,13 +29,17 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("api/type")
+@Api("类型操作接口")
 public class TypeController {
 
     @Autowired
     private TypeService typeService;
     public static final Logger LOGGER = LoggerFactory.getLogger(TypeController.class);
 
+
     @GetMapping("/listall")
+    @ApiOperation(value = "获取所有类型", httpMethod = "GET")
+    @ApiResponse(code = 200, message = "操作成功", response = ResponseDto.class)
     public ResponseDto listAllTypes() {
         LOGGER.info("获取所有Type");
         List<Type> types = typeService.listAllTypes();

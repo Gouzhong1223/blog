@@ -11,6 +11,7 @@ import com.gouzhong1223.blog.pojo.Blog;
 import com.gouzhong1223.blog.service.BlogService;
 import com.gouzhong1223.blog.service.TagService;
 import com.gouzhong1223.blog.service.TypeService;
+import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api/admin/blog")
+@Api("Blog管理员操作接口")
 public class AdminBlogController {
 
     @Autowired()
@@ -43,6 +45,12 @@ public class AdminBlogController {
     public static final Logger LOGGER = LoggerFactory.getLogger(BlogController.class);
 
     @DeleteMapping("/delete/{id}")
+    @ApiOperation(value = "根据传递过来的id删除Blog", notes = "删除Blog", httpMethod = "DELETE")
+    @ApiImplicitParam(name = "id", value = "主键", required = true, dataType = "Integer", paramType = "path", example = "1", dataTypeClass = Integer.class)
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "操作成功", response = ResponseDto.class),
+            @ApiResponse(code = 201, message = "操作失败", response = ResponseDto.class)
+    })
     public ResponseDto deleteBlog(@PathVariable("id") Integer id) {
         LOGGER.info("删除id为{}的Blog", id);
         int i = blogService.deleteByPrimaryKey(id);
@@ -127,6 +135,7 @@ public class AdminBlogController {
     @PostMapping("/pagelist")
     public ResponseDto listAllBlogByPage(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
                                          @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize) {
+
         LOGGER.info("开始分页查询数据，当前页码为{}，当前每一页大小为{}", pageNum, pageSize);
         PageResult<Blog> blogPageResult = blogService.listBlogByPage(pageNum, pageSize);
         if (!CollectionUtils.isEmpty(blogPageResult.getList())) {

@@ -3,12 +3,20 @@ package com.gouzhong1223.blog.config;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Bean;
 import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.ParameterBuilder;
+import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.Contact;
+import springfox.documentation.schema.ModelRef;
+import springfox.documentation.service.*;
 import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 
 /**
  * @Author : Gouzhong
@@ -27,13 +35,27 @@ public class Swagger2Config {
 
     @Bean
     public Docket petApi() {
+
+
+        ParameterBuilder tokenPar = new ParameterBuilder();
+        ParameterBuilder username = new ParameterBuilder();
+        List<Parameter> pars = new ArrayList<>();
+        tokenPar.name("token").description("令牌").modelRef(new ModelRef("string")).parameterType("header").required(true).build();
+        username.name("username").description("用户名").modelRef(new ModelRef("string")).parameterType("header").required(true).build();
+        pars.add(tokenPar.build());
+        pars.add(username.build());
+
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                //指定提供接口所在的基包
                 .apis(RequestHandlerSelectors.basePackage("com.gouzhong1223.blog.controller"))
-//                .apis(RequestHandlerSelectors.basePackage("com.gouzhong1223.blog.controller.admin"))
-                .build();
+                .paths(PathSelectors.any())
+                .build()
+                .globalOperationParameters(pars)
+                .ignoredParameterTypes()
+                .apiInfo(apiInfo());
+
+
     }
 
     /**
@@ -50,4 +72,5 @@ public class Swagger2Config {
                 .description("接口")
                 .build();
     }
+
 }

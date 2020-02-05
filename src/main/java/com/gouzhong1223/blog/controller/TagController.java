@@ -5,6 +5,9 @@ import com.gouzhong1223.blog.common.ResultMessage;
 import com.gouzhong1223.blog.dto.ResponseDto;
 import com.gouzhong1223.blog.pojo.Tag;
 import com.gouzhong1223.blog.service.TagService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +29,7 @@ import java.util.List;
  */
 @RequestMapping("api/tag")
 @RestController
+@Api("类型操作接口")
 public class TagController {
 
     @Autowired
@@ -33,6 +37,8 @@ public class TagController {
     public static final Logger LOGGER = LoggerFactory.getLogger(TagController.class);
 
     @GetMapping("listall")
+    @ApiOperation(value = "获取所有标签", httpMethod = "GET")
+    @ApiResponse(code = 200, message = "操作成功", response = ResponseDto.class)
     public ResponseDto listAllTags() {
         List<Tag> tags = tagService.listAllTags();
         if (CollectionUtils.isEmpty(tags)) {

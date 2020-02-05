@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
  * @ProjectName : blog
  * @Version : 1.0.0
  */
-@ApiModel(value = "com-gouzhong1223-blog-pojo-Blog")
+@ApiModel(value = "com.gouzhong1223.blog.pojo.Blog")
 @Data
 @Builder
 @AllArgsConstructor
@@ -89,14 +89,6 @@ public class Blog implements Serializable {
      */
     @ApiModelProperty(value = "简介")
     private String introduction;
-
-    /*public void setCreatetime(Date date) {
-        this.createtime = DateTimeUtil.getDateTime(date);
-    }
-
-    public void setUpdatetime(Date date) {
-        this.updatetime = DateTimeUtil.getDateTime(date);
-    }*/
 
     private static final long serialVersionUID = 1L;
 

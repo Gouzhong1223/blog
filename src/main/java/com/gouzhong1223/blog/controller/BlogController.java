@@ -64,7 +64,7 @@ public class BlogController {
     @ApiImplicitParam(name = "id", value = "Blog主键", required = true, dataType = "Integer", paramType = "path", example = "1")
     @ApiResponses({
             @ApiResponse(code = 200, message = "操作成功！", response = ResponseDto.class),
-            @ApiResponse(code = 201, message = "操作失败！")
+            @ApiResponse(code = 201, message = "操作失败！", response = ResponseDto.class)
     })
     @GetMapping("/blogdetail/{id}")
     public ResponseDto blogDetail(@PathVariable("id") Integer id) throws BlogException {
@@ -94,7 +94,7 @@ public class BlogController {
     }
 
     @PostMapping("/pagelist")
-    @ApiOperation(value = "分页查询Blogs",httpMethod = "POST")
+    @ApiOperation(value = "分页查询Blogs", httpMethod = "POST")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "pageNum", value = "当前页码", dataType = "Integer", paramType = "body", required = false, defaultValue = "1"),
             @ApiImplicitParam(name = "pageSize", value = "每页大小", dataType = "Integer", paramType = "body", required = false, defaultValue = "5")

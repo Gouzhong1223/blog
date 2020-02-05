@@ -401,3 +401,197 @@
 2020-02-05 17:31:40.545  INFO 50894 --- [http-nio-8087-exec-3] com.gouzhong1223.blog.aspect.LogAspect   : Request : {url='http://localhost:8087/api/blog/allblogs', ip='0:0:0:0:0:0:0:1', classMethod='com.gouzhong1223.blog.controller.BlogController.listAllBlogs', args=[]}
 2020-02-05 17:31:40.545  INFO 50894 --- [http-nio-8087-exec-3] c.g.blog.controller.BlogController       : 查询所有的Blog
 2020-02-05 17:31:40.557  INFO 50894 --- [http-nio-8087-exec-3] com.gouzhong1223.blog.aspect.LogAspect   : Result : ResponseDto(code=200, message=操作成功！, data=[Blog(id=9, blogtitle=测试标题7, createtime=2020-02-04 12:28:38, updatetime=2020-02-03 23:57:18, blogtext=测试正文7, visible=1, typeid=1, share=0, blogimage=测试图片地址, introduction=测试简介), Blog(id=10, blogtitle=测试标题, createtime=2020-02-04 12:27:35, updatetime=2020-02-04 12:27:35, blogtext=测试正文, visible=1, typeid=1, share=0, blogimage=测试图片地址, introduction=测试简介)])
+2020-02-05 17:33:23.843  INFO 50894 --- [Thread-20] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-05 17:33:23.845  INFO 50894 --- [Thread-20] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-02-05 17:33:23.853  INFO 50894 --- [Thread-20] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-02-05 20:52:16.923  INFO 76040 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Starting BlogApplication on localhost with PID 76040 (/Users/qingsong/Projects/IDEA/2020-01/blog/target/classes started by qingsong in /Users/qingsong/Projects/IDEA/2020-01/blog)
+2020-02-05 20:52:16.946  INFO 76040 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : The following profiles are active: dev
+2020-02-05 20:52:17.065  INFO 76040 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-05 20:52:17.066  INFO 76040 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-05 20:52:18.757  INFO 76040 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-05 20:52:18.761  INFO 76040 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-05 20:52:18.815  INFO 76040 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19ms. Found 0 repository interfaces.
+2020-02-05 20:52:19.219  INFO 76040 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$561ab24c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-05 20:52:19.894  INFO 76040 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8087 (http)
+2020-02-05 20:52:19.933  INFO 76040 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-05 20:52:19.934  INFO 76040 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2020-02-05 20:52:20.029  INFO 76040 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-05 20:52:20.029  INFO 76040 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2963 ms
+2020-02-05 20:52:21.229  INFO 76040 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-02-05 20:52:21.479  INFO 76040 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-05 20:52:21.550  INFO 76040 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-05 20:52:22.527  INFO 76040 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-02-05 20:52:22.547  INFO 76040 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-02-05 20:52:22.585  INFO 76040 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-02-05 20:52:22.776  INFO 76040 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllBlogByPageUsingPOST_1
+2020-02-05 20:52:22.887  INFO 76040 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8087 (http) with context path ''
+2020-02-05 20:52:22.892  INFO 76040 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Started BlogApplication in 7.07 seconds (JVM running for 10.763)
+2020-02-05 20:52:33.047  INFO 76040 --- [http-nio-8087-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-05 20:52:33.047  INFO 76040 --- [http-nio-8087-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-05 20:52:33.061  INFO 76040 --- [http-nio-8087-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2020-02-05 20:57:22.928  INFO 76040 --- [Thread-24] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-05 20:57:31.960  INFO 77174 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Starting BlogApplication on localhost with PID 77174 (/Users/qingsong/Projects/IDEA/2020-01/blog/target/classes started by qingsong in /Users/qingsong/Projects/IDEA/2020-01/blog)
+2020-02-05 20:57:31.965  INFO 77174 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : The following profiles are active: dev
+2020-02-05 20:57:32.079  INFO 77174 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-05 20:57:32.079  INFO 77174 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-05 20:57:33.479  INFO 77174 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-05 20:57:33.481  INFO 77174 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-05 20:57:33.509  INFO 77174 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16ms. Found 0 repository interfaces.
+2020-02-05 20:57:33.929  INFO 77174 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$82a81cfa] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-05 20:57:34.539  INFO 77174 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8087 (http)
+2020-02-05 20:57:34.560  INFO 77174 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-05 20:57:34.560  INFO 77174 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2020-02-05 20:57:34.639  INFO 77174 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-05 20:57:34.640  INFO 77174 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2560 ms
+2020-02-05 20:57:35.665  INFO 77174 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-02-05 20:57:35.883  INFO 77174 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-05 20:57:35.958  INFO 77174 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-05 20:57:36.743  INFO 77174 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-02-05 20:57:36.761  INFO 77174 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-02-05 20:57:36.794  INFO 77174 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-02-05 20:57:36.985  INFO 77174 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllBlogByPageUsingPOST_1
+2020-02-05 20:57:37.106  INFO 77174 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8087 (http) with context path ''
+2020-02-05 20:57:37.113  INFO 77174 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Started BlogApplication in 6.021 seconds (JVM running for 7.319)
+2020-02-05 21:03:44.965  INFO 77174 --- [Thread-21] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-05 21:03:52.589  INFO 78531 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Starting BlogApplication on localhost with PID 78531 (/Users/qingsong/Projects/IDEA/2020-01/blog/target/classes started by qingsong in /Users/qingsong/Projects/IDEA/2020-01/blog)
+2020-02-05 21:03:52.602  INFO 78531 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : The following profiles are active: dev
+2020-02-05 21:03:52.806  INFO 78531 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-05 21:03:52.806  INFO 78531 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-05 21:03:54.133  INFO 78531 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-05 21:03:54.135  INFO 78531 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-05 21:03:54.166  INFO 78531 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18ms. Found 0 repository interfaces.
+2020-02-05 21:03:54.699  INFO 78531 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$35da4bbd] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-05 21:03:55.491  INFO 78531 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8087 (http)
+2020-02-05 21:03:55.547  INFO 78531 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-05 21:03:55.548  INFO 78531 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2020-02-05 21:03:55.650  INFO 78531 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-05 21:03:55.650  INFO 78531 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2844 ms
+2020-02-05 21:03:57.143  INFO 78531 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-02-05 21:03:57.409  INFO 78531 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-05 21:03:57.512  INFO 78531 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-05 21:03:58.357  INFO 78531 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-02-05 21:03:58.373  INFO 78531 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-02-05 21:03:58.401  INFO 78531 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-02-05 21:03:58.565  INFO 78531 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllBlogByPageUsingPOST_1
+2020-02-05 21:03:58.683  INFO 78531 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8087 (http) with context path ''
+2020-02-05 21:03:58.687  INFO 78531 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Started BlogApplication in 6.859 seconds (JVM running for 9.09)
+2020-02-05 21:04:11.492  INFO 78531 --- [http-nio-8087-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-05 21:04:11.493  INFO 78531 --- [http-nio-8087-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-05 21:04:11.512  INFO 78531 --- [http-nio-8087-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 18 ms
+2020-02-05 21:04:26.468  INFO 78531 --- [Thread-24] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-05 21:11:52.878  INFO 80216 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Starting BlogApplication on localhost with PID 80216 (/Users/qingsong/Projects/IDEA/2020-01/blog/target/classes started by qingsong in /Users/qingsong/Projects/IDEA/2020-01/blog)
+2020-02-05 21:11:52.882  INFO 80216 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : The following profiles are active: dev
+2020-02-05 21:11:52.940  INFO 80216 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-05 21:11:52.941  INFO 80216 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-05 21:11:54.190  INFO 80216 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-05 21:11:54.193  INFO 80216 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-05 21:11:54.228  INFO 80216 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24ms. Found 0 repository interfaces.
+2020-02-05 21:11:54.631  INFO 80216 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ce8e1203] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-05 21:11:55.222  INFO 80216 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8087 (http)
+2020-02-05 21:11:55.249  INFO 80216 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-05 21:11:55.250  INFO 80216 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2020-02-05 21:11:55.332  INFO 80216 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-05 21:11:55.333  INFO 80216 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2391 ms
+2020-02-05 21:11:56.374  INFO 80216 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-02-05 21:11:56.596  INFO 80216 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-05 21:11:56.664  INFO 80216 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-05 21:11:57.412  INFO 80216 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-02-05 21:11:57.428  INFO 80216 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-02-05 21:11:57.460  INFO 80216 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-02-05 21:11:57.638  INFO 80216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllBlogByPageUsingPOST_1
+2020-02-05 21:11:57.746  INFO 80216 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8087 (http) with context path ''
+2020-02-05 21:11:57.753  INFO 80216 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Started BlogApplication in 5.705 seconds (JVM running for 7.847)
+2020-02-05 21:12:01.820  INFO 80216 --- [http-nio-8087-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-05 21:12:01.820  INFO 80216 --- [http-nio-8087-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-05 21:12:01.836  INFO 80216 --- [http-nio-8087-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
+2020-02-05 21:33:40.884  INFO 80216 --- [Thread-21] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-05 21:33:49.091  INFO 84866 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Starting BlogApplication on localhost with PID 84866 (/Users/qingsong/Projects/IDEA/2020-01/blog/target/classes started by qingsong in /Users/qingsong/Projects/IDEA/2020-01/blog)
+2020-02-05 21:33:49.100  INFO 84866 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : The following profiles are active: dev
+2020-02-05 21:33:49.174  INFO 84866 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-05 21:33:49.175  INFO 84866 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-05 21:33:50.714  INFO 84866 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-05 21:33:50.716  INFO 84866 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-05 21:33:50.750  INFO 84866 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21ms. Found 0 repository interfaces.
+2020-02-05 21:33:51.188  INFO 84866 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$547a058d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-05 21:33:51.955  INFO 84866 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8087 (http)
+2020-02-05 21:33:51.988  INFO 84866 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-05 21:33:51.989  INFO 84866 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2020-02-05 21:33:52.092  INFO 84866 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-05 21:33:52.092  INFO 84866 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2915 ms
+2020-02-05 21:33:53.208  INFO 84866 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-02-05 21:33:53.227  WARN 84866 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'petApi' defined in class path resource [com/gouzhong1223/blog/config/Swagger2Config.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [springfox.documentation.spring.web.plugins.Docket]: Factory method 'petApi' threw exception; nested exception is java.lang.ClassCastException: springfox.documentation.service.SecurityReference cannot be cast to java.util.Collection
+2020-02-05 21:33:53.232  INFO 84866 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-02-05 21:33:53.243  INFO 84866 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-02-05 21:33:53.261 ERROR 84866 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'petApi' defined in class path resource [com/gouzhong1223/blog/config/Swagger2Config.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [springfox.documentation.spring.web.plugins.Docket]: Factory method 'petApi' threw exception; nested exception is java.lang.ClassCastException: springfox.documentation.service.SecurityReference cannot be cast to java.util.Collection
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:627) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:456) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1321) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1160) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:843) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877) ~[spring-context-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549) ~[spring-context-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) ~[spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at com.gouzhong1223.blog.BlogApplication.main(BlogApplication.java:10) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_231]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_231]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_231]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_231]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [springfox.documentation.spring.web.plugins.Docket]: Factory method 'petApi' threw exception; nested exception is java.lang.ClassCastException: springfox.documentation.service.SecurityReference cannot be cast to java.util.Collection
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	... 24 common frames omitted
+Caused by: java.lang.ClassCastException: springfox.documentation.service.SecurityReference cannot be cast to java.util.Collection
+	at com.gouzhong1223.blog.config.Swagger2Config.defaultAuth(Swagger2Config.java:90) ~[classes/:na]
+	at com.gouzhong1223.blog.config.Swagger2Config.securityContexts(Swagger2Config.java:80) ~[classes/:na]
+	at com.gouzhong1223.blog.config.Swagger2Config.petApi(Swagger2Config.java:56) ~[classes/:na]
+	at com.gouzhong1223.blog.config.Swagger2Config$$EnhancerBySpringCGLIB$$a438f8ee.CGLIB$petApi$0(<generated>) ~[classes/:na]
+	at com.gouzhong1223.blog.config.Swagger2Config$$EnhancerBySpringCGLIB$$a438f8ee$$FastClassBySpringCGLIB$$dc714187.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244) ~[spring-core-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363) ~[spring-context-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at com.gouzhong1223.blog.config.Swagger2Config$$EnhancerBySpringCGLIB$$a438f8ee.petApi(<generated>) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_231]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_231]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_231]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_231]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	... 25 common frames omitted
+
+2020-02-05 21:35:38.604  INFO 85257 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Starting BlogApplication on localhost with PID 85257 (/Users/qingsong/Projects/IDEA/2020-01/blog/target/classes started by qingsong in /Users/qingsong/Projects/IDEA/2020-01/blog)
+2020-02-05 21:35:38.610  INFO 85257 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : The following profiles are active: dev
+2020-02-05 21:35:38.677  INFO 85257 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-05 21:35:38.677  INFO 85257 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-05 21:35:39.719  INFO 85257 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-05 21:35:39.721  INFO 85257 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-05 21:35:39.750  INFO 85257 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17ms. Found 0 repository interfaces.
+2020-02-05 21:35:40.145  INFO 85257 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$efa9eaf5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-05 21:35:40.718  INFO 85257 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8087 (http)
+2020-02-05 21:35:40.737  INFO 85257 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-05 21:35:40.738  INFO 85257 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2020-02-05 21:35:40.816  INFO 85257 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-05 21:35:40.817  INFO 85257 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2140 ms
+2020-02-05 21:35:41.799  INFO 85257 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-02-05 21:35:42.034  INFO 85257 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-05 21:35:42.101  INFO 85257 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-05 21:35:42.818  INFO 85257 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-02-05 21:35:42.836  INFO 85257 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-02-05 21:35:42.871  INFO 85257 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-02-05 21:35:43.047  INFO 85257 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllBlogByPageUsingPOST_1
+2020-02-05 21:35:43.142  INFO 85257 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8087 (http) with context path ''
+2020-02-05 21:35:43.146  INFO 85257 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Started BlogApplication in 5.205 seconds (JVM running for 7.279)
+2020-02-05 21:36:30.013  INFO 85257 --- [Thread-20] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'

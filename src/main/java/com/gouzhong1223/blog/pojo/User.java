@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
  * @ProjectName : blog
  * @Version : 1.0.0
  */
-@ApiModel(value = "com-gouzhong1223-blog-pojo-User")
+@ApiModel(value = "com.gouzhong1223.blog.pojo.User")
 @Data
 @Builder
 @AllArgsConstructor

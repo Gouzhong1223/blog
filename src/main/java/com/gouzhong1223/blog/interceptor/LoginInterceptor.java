@@ -1,11 +1,8 @@
 package com.gouzhong1223.blog.interceptor;
 
-import com.alibaba.fastjson.JSONObject;
 import com.auth0.jwt.JWT;
 import com.gouzhong1223.blog.common.BlogException;
 import com.gouzhong1223.blog.common.ResultCode;
-import com.gouzhong1223.blog.common.ResultMessage;
-import com.gouzhong1223.blog.dto.ResponseDto;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
