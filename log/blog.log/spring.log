@@ -778,3 +778,4 @@ Caused by: java.lang.ClassCastException: springfox.documentation.service.Securit
 2020-02-05 21:59:09.223  INFO 90417 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listAllBlogByPageUsingPOST_1
 2020-02-05 21:59:09.323  INFO 90417 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8087 (http) with context path ''
 2020-02-05 21:59:09.327  INFO 90417 --- [restartedMain] com.gouzhong1223.blog.BlogApplication    : Started BlogApplication in 6.885 seconds (JVM running for 8.23)
+2020-02-05 22:00:08.899  INFO 90417 --- [Thread-23] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
