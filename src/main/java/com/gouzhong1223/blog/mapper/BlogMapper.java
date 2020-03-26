@@ -37,6 +37,8 @@ public interface BlogMapper {
 
     int batchInsert(@Param("list") List<Blog> list);
 
+
+
     /**
      * 查询所有博客
      *

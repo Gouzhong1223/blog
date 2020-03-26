@@ -30,6 +30,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Blog implements Serializable {
+
     /**
      * 主键
      */
@@ -47,7 +48,7 @@ public class Blog implements Serializable {
      */
     @ApiModelProperty(value = "创建时间")
     private String createtime;
-
+    
     /**
      * 更新时间
      */

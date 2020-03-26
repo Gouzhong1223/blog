@@ -1,9 +1,7 @@
 package com.gouzhong1223.blog.dto;
 
-import com.gouzhong1223.blog.common.PageResult;
 import com.gouzhong1223.blog.common.ResultCode;
 import com.gouzhong1223.blog.common.ResultMessage;
-import com.gouzhong1223.blog.pojo.Blog;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
